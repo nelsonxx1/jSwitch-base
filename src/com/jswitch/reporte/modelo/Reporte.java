@@ -32,7 +32,7 @@ public class Reporte extends BeanVO implements Serializable {
         this.titulo = titulo;
         this.observacion = observacion;
         this.baseSQL = baseSQL;
-         this.tipoPapel="Carta";
+        this.tipoPapel="Carta";
     }
 
     public Reporte(CategoriaReporte categoria, int tipo, String file, String titulo, String observacion, String baseSQL,String tipoPapel) {

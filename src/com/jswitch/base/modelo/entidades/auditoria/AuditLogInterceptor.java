@@ -1,3 +1,5 @@
+
+
 package com.jswitch.base.modelo.entidades.auditoria;
 
 import com.jswitch.base.controlador.General;
@@ -53,7 +55,6 @@ public class AuditLogInterceptor extends EmptyInterceptor {
 
     @Override
     public void onDelete(Object entity, Serializable id, Object[] state, String[] propertyNames, Type[] types) {
-//        System.out.println("onDelete....");
         if (entity instanceof Auditable) {
             AuditLogRecord au = new AuditLogRecord();
             au.setCreated(new Date());
@@ -74,8 +75,9 @@ public class AuditLogInterceptor extends EmptyInterceptor {
                     }
                     au.getNombres().add(propertyNames[i]);
                     if (ids.length() > 0) {
-                        au.getValores().add(ids.substring(3));
+                        ids = ids.substring(3);
                     }
+                    au.getValores().add(ids);
                 } else if (state[i] instanceof PersistentList) {
                     Hibernate.initialize(state[i]);
                     String ids = "";
@@ -86,8 +88,9 @@ public class AuditLogInterceptor extends EmptyInterceptor {
                     }
                     au.getNombres().add(propertyNames[i]);
                     if (ids.length() > 0) {
-                        au.getValores().add(ids.substring(3));
+                        ids = ids.substring(3);
                     }
+                    au.getValores().add(ids);
                 } else {
                     au.getNombres().add(propertyNames[i]);
                     au.getValores().add(state[i]);
@@ -128,15 +131,15 @@ public class AuditLogInterceptor extends EmptyInterceptor {
             throws CallbackException {
         try {
             for (Iterator it = inserts.iterator(); it.hasNext();) {
-//                System.out.println("ins ** :" + inserts.size());
+                System.out.println("ins ** :" + inserts.size());
                 AuditLog.logEvent((AuditLogRecord) it.next());
             }
             for (Iterator it = updates.iterator(); it.hasNext();) {
-//                System.out.println("up ** :" + updates.size());
+                System.out.println("up ** :" + updates.size());
                 AuditLog.logEvent((AuditLogRecord) it.next());
             }
             for (Iterator it = delete.iterator(); it.hasNext();) {
-//                System.out.println("del ** :" + delete.size());
+                System.out.println("del ** :" + delete.size());
                 AuditLog.logEvent((AuditLogRecord) it.next());
             }
         } finally {

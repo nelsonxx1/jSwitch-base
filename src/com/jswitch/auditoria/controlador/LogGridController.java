@@ -6,8 +6,6 @@ import com.jswitch.auditoria.modelo.AtributoValor;
 import com.jswitch.base.controlador.util.DefaultGridFrameController;
 import com.jswitch.base.modelo.entidades.auditoria.AuditLogRecord;
 import java.util.ArrayList;
-import java.util.Map;
-import org.openswing.swing.message.receive.java.Response;
 import org.openswing.swing.message.receive.java.ValueObject;
 
 /**

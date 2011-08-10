@@ -565,9 +565,6 @@ public class HibernateUtils {
         int resultSetLength = -1;
         // System.out.println(baseSQL);
         // read the whole result set...
-
-        System.out.println(baseSQL);
-
         List list = sess.createQuery(baseSQL).setParameters(values.toArray(), (Type[]) types.toArray(new Type[types.size()])).list();
         gridList.addAll(list);
         resultSetLength = gridList.size();
