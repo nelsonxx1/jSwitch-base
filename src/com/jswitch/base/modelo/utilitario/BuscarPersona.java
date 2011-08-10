@@ -10,8 +10,7 @@ import com.jswitch.base.modelo.util.bean.BeanVO;
 
 /**
  *
- * @author Nelson Moncada
- * @author Orlando Becerra
+ * @author Luis Adrian
  * 
  */
 public class BuscarPersona extends BeanVO {
@@ -45,4 +44,6 @@ public class BuscarPersona extends BeanVO {
     public void setTipoPersona(TipoPersona tipoPersona) {
         this.tipoPersona = tipoPersona;
     }
+ 
+    
 }
