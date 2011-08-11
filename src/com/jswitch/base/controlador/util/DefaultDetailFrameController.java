@@ -46,12 +46,11 @@ public class DefaultDetailFrameController extends FormController implements Acti
     public void setBeanVO(BeanVO beanVO) {
         this.beanVO = beanVO;
     }
-     
 
     public DefaultDetailFrameController() {
     }
 
-     public DefaultDetailFrameController(String detailFramePath, GridControl gridControl, BeanVO beanVO, Boolean aplicarLogicaNegocio) {
+    public DefaultDetailFrameController(String detailFramePath, GridControl gridControl, BeanVO beanVO, Boolean aplicarLogicaNegocio) {
         this.gridControl = gridControl;
         this.beanVO = beanVO;
         this.aplicarLogicaNegocio = aplicarLogicaNegocio;
@@ -108,7 +107,7 @@ public class DefaultDetailFrameController extends FormController implements Acti
             s.save(newPersistentObject);
 
             if (aplicarLogicaNegocio) {
-                Response response = logicaNegocioDespuesSave(newPersistentObject);
+                Response response = logicaNegocioDespuesSave(newPersistentObject, s);
                 if (response.isError()) {
                     return response;
                 }
@@ -124,8 +123,8 @@ public class DefaultDetailFrameController extends FormController implements Acti
 
             vista.setOwnerVO((BeanVO) newPersistentObject);
             beanVO = (BeanVO) newPersistentObject;
-            if (gridControl != null) {
-                gridControl.reloadData();
+            if (gridControl != null && gridControl.getReloadButton() != null) {
+                gridControl.getReloadButton().doClick();
             }
             return new VOResponse(newPersistentObject);
         } catch (Exception ex) {
@@ -231,7 +230,7 @@ public class DefaultDetailFrameController extends FormController implements Acti
 //        }
     }
 
-    public Response logicaNegocioDespuesSave(ValueObject persistentObject) {
+    public Response logicaNegocioDespuesSave(ValueObject persistentObject, Session s) {
         //throw new UnsupportedOperationException("Not yet implemented");
 //        String errorMsj = "";
 //        if (errorMsj.length() > 0) {
