@@ -22,82 +22,77 @@ import javax.validation.constraints.Size;
 @Entity
 public class Reporte extends BeanVO implements Serializable {
 
-    public Reporte() {
-    }
-
-    public Reporte(CategoriaReporte categoria, int tipo, String file, String titulo, String observacion, String baseSQL) {
-        this.categoria = categoria;
-        this.tipo = tipo;
-        this.file = file;
-        this.titulo = titulo;
-        this.observacion = observacion;
-        this.baseSQL = baseSQL;
-        this.tipoPapel="Carta";
-    }
-
-    public Reporte(CategoriaReporte categoria, int tipo, String file, String titulo, String observacion, String baseSQL,String tipoPapel) {
-        this.categoria = categoria;
-        this.tipo = tipo;
-        this.file = file;
-        this.titulo = titulo;
-        this.observacion = observacion;
-        this.baseSQL = baseSQL;
-        this.tipoPapel=tipoPapel;
-    }
     /**
      *  PK autoincremtado
      */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
-    @BusinessKey(exclude= Method.ALL)
+    @BusinessKey(exclude = Method.ALL)
     private Long id;
     /**
      */
     @Version
     @Column
-    @BusinessKey(exclude= Method.ALL)
+    @BusinessKey(exclude = Method.ALL)
     private Integer optLock;
     /**
      */
     @Column
     @Enumerated(EnumType.STRING)
-    @BusinessKey(exclude= Method.EQUALS)
+    @BusinessKey(exclude = Method.EQUALS)
     private CategoriaReporte categoria;
-        /**
+    /**
      */
     @Column
-    @BusinessKey(exclude= Method.EQUALS)
+    @BusinessKey(exclude = Method.EQUALS)
     private String tipoPapel;
     /**
      */
     @Column
-    @BusinessKey(exclude= Method.EQUALS)
+    @BusinessKey(exclude = Method.EQUALS)
     private int tipo;
     /**
      */
     @Column
     @Size(min = 2, max = 200)
-    @BusinessKey(include=Method.EQUALS)
+    @BusinessKey(include = Method.EQUALS)
     private String file;
     /**
      */
     @Column
     @Size(min = 2, max = 100)
-    @BusinessKey(exclude= Method.EQUALS)
+    @BusinessKey(exclude = Method.EQUALS)
     private String titulo;
     /**
      */
     @Column
     @Size(max = 300)
-    @BusinessKey(exclude= Method.EQUALS)
+    @BusinessKey(exclude = Method.EQUALS)
     private String observacion;
     /**
      */
     @Column
     @Size(min = 0, max = 3000)
-    @BusinessKey(exclude= Method.EQUALS)
+    @BusinessKey(exclude = Method.EQUALS)
     private String baseSQL;
+
+    public Reporte() {
+    }
+
+    public Reporte(CategoriaReporte categoria, int tipo, String file, String titulo, String observacion, String baseSQL) {
+        this(categoria, tipo, file, titulo, observacion, baseSQL, "Carta");
+    }
+
+    public Reporte(CategoriaReporte categoria, int tipo, String file, String titulo, String observacion, String baseSQL, String tipoPapel) {
+        this.categoria = categoria;
+        this.tipo = tipo;
+        this.file = file;
+        this.titulo = titulo;
+        this.observacion = observacion;
+        this.baseSQL = baseSQL;
+        this.tipoPapel = tipoPapel;
+    }
 
     public Long getId() {
         return id;
@@ -170,5 +165,4 @@ public class Reporte extends BeanVO implements Serializable {
     public void setTipoPapel(String tipoPapel) {
         this.tipoPapel = tipoPapel;
     }
-
 }
