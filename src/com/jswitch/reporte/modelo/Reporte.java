@@ -76,16 +76,6 @@ public class Reporte extends BeanVO implements Serializable {
     @Size(min = 0, max = 3000)
     @BusinessKey(exclude = Method.EQUALS)
     private String baseSQL;
-    /**
-     */
-    @Column
-    @BusinessKey(exclude = Method.ALL)
-    private Boolean mostarEnListado;
-    /**
-     */
-    @Column
-    @BusinessKey(exclude = Method.ALL)
-    private String idPropio;
 
     public Reporte() {
     }
@@ -95,10 +85,6 @@ public class Reporte extends BeanVO implements Serializable {
     }
 
     public Reporte(CategoriaReporte categoria, int tipo, String file, String titulo, String observacion, String baseSQL, String tipoPapel) {
-        this(categoria, tipo, file, titulo, observacion, baseSQL, tipoPapel, true, null);
-    }
-    
-    public Reporte(CategoriaReporte categoria, int tipo, String file, String titulo, String observacion, String baseSQL, String tipoPapel, Boolean mostarEnListado, String idPropio) {
         this.categoria = categoria;
         this.tipo = tipo;
         this.file = file;
@@ -106,11 +92,7 @@ public class Reporte extends BeanVO implements Serializable {
         this.observacion = observacion;
         this.baseSQL = baseSQL;
         this.tipoPapel = tipoPapel;
-        this.mostarEnListado=mostarEnListado;
-        this.idPropio=idPropio;
     }
-    
-    
 
     public Long getId() {
         return id;
@@ -182,21 +164,5 @@ public class Reporte extends BeanVO implements Serializable {
 
     public void setTipoPapel(String tipoPapel) {
         this.tipoPapel = tipoPapel;
-    }
-
-    public Boolean isMostarEnListado() {
-        return mostarEnListado;
-    }
-
-    public void setMostarEnListado(Boolean mostarEnListado) {
-        this.mostarEnListado = mostarEnListado;
-    }
-
-    public String getIdPropio() {
-        return idPropio;
-    }
-
-    public void setIdPropio(String idPropio) {
-        this.idPropio = idPropio;
     }
 }

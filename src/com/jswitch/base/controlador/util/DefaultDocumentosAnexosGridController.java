@@ -17,7 +17,6 @@ import java.util.Set;
 import javax.swing.JOptionPane;
 import com.jswitch.base.controlador.logger.LoggerUtil;
 import com.jswitch.base.modelo.HibernateUtil;
-import com.jswitch.base.modelo.entidades.auditoria.AuditLogInterceptor;
 import com.jswitch.base.modelo.entidades.auditoria.Auditable;
 import com.jswitch.base.modelo.entidades.auditoria.AuditoriaBasica;
 import com.jswitch.base.modelo.util.bean.BeanVO;
