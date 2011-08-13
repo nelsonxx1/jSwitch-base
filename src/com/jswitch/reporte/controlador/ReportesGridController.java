@@ -17,6 +17,7 @@ import org.openswing.swing.message.receive.java.Response;
 import org.openswing.swing.message.receive.java.ValueObject;
 import org.openswing.swing.util.client.ClientUtils;
 import com.jswitch.reporte.vista.ReportesGridFrame;
+import org.openswing.swing.message.send.java.FilterWhereClause;
 import org.openswing.swing.util.server.HibernateUtils;
 
 /**
@@ -36,6 +37,12 @@ public class ReportesGridController extends DefaultGridFrameController {
         ReportesGridFrame frame = (ReportesGridFrame) gridFrame;
         Session s = null;
         try {
+            filteredColumns.put(
+                    "mostarEnListado",
+                    new FilterWhereClause[]{
+                        new FilterWhereClause("mostarEnListado", "=", true),
+                        null
+                    });
             String sql = "FROM " + claseModeloFullPath + " C ";
             boolean sw = false;
             if (frame.getCategoria() != null) {
