@@ -1,5 +1,3 @@
-
-
 package org.openswing.swing.client;
 
 import com.jswitch.base.modelo.entidades.auditoria.Auditable;
@@ -253,7 +251,7 @@ public class CodLookupControl extends BaseInputControl implements CodBoxContaine
         codBox.setValue(code);
         if (attName != null) {
             Object object = validationController.getForm().getVOModel().getValue(attName);
-            openButton.setEnabled((object instanceof Auditable && ((Auditable) object).getId() != null));              
+            openButton.setEnabled((object instanceof Auditable && ((Auditable) object).getId() != null));
         }
     }
 
@@ -852,4 +850,4 @@ public class CodLookupControl extends BaseInputControl implements CodBoxContaine
     public void setNewPosLookupVO(int newPosLookupVO) {
         this.newPosLookupVO = newPosLookupVO;
     }
-}
+    }
