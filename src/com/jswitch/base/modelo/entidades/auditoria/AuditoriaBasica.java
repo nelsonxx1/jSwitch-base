@@ -85,6 +85,9 @@ public class AuditoriaBasica extends BeanVO implements Serializable {
         this.fechaInsert = fechaInsert;
         this.usuarioInsert = usuarioInsert;
         this.activo = activo;
+        this.borrable=true;
+        this.editable2=true;
+        this.visible2=true;
     }
 
     public AuditoriaBasica(Date fechaInsert, String usuarioInsert, Boolean activo, Boolean editable2, Boolean borrable, Boolean visible2) {

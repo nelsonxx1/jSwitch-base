@@ -7,7 +7,6 @@ import javax.swing.event.InternalFrameAdapter;
 import javax.swing.event.InternalFrameEvent;
 import com.jswitch.base.controlador.logger.LoggerUtil;
 import com.jswitch.base.modelo.HibernateUtil;
-import com.jswitch.base.modelo.entidades.auditoria.AuditLogInterceptor;
 import org.hibernate.Transaction;
 import org.hibernate.classic.Session;
 import org.openswing.swing.mdi.client.InternalFrame;
