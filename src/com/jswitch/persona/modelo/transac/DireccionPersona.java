@@ -28,7 +28,6 @@ import javax.validation.constraints.NotNull;
  * @author Orlando Becerra
  * @author Nelson Moncada
  */
-//TODO agregar estado, zona postal, ect
 @Entity
 public class DireccionPersona extends BeanVO implements Serializable, Auditable {
 
@@ -47,6 +46,24 @@ public class DireccionPersona extends BeanVO implements Serializable, Auditable 
     @Size(min = 2, max = 255)
     @BusinessKey
     private String direccion;
+    /**
+     * zip code
+     */
+    @Column
+    @BusinessKey
+    private String zonaPostal;
+    /**
+     * ubicacion geografica
+     */
+    @Column
+    @BusinessKey
+    private Float latitud;
+    /**
+     * ubicacion geografica
+     */
+    @Column
+    @BusinessKey
+    private Float longitud;
     /**
      * Observacion de la direccion
      */
@@ -89,6 +106,7 @@ public class DireccionPersona extends BeanVO implements Serializable, Auditable 
         this.direccion = direccion;
     }
 
+    @Override
     public Long getId() {
         return id;
     }
@@ -121,11 +139,38 @@ public class DireccionPersona extends BeanVO implements Serializable, Auditable 
         this.tipoDireccion = tipoDireccion;
     }
 
+    @Override
     public AuditoriaBasica getAuditoria() {
         return auditoria;
     }
 
+    @Override
     public void setAuditoria(AuditoriaBasica auditoria) {
         this.auditoria = auditoria;
     }
+
+    public Float getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(Float latitud) {
+        this.latitud = latitud;
+    }
+
+    public Float getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(Float longitud) {
+        this.longitud = longitud;
+    }
+
+    public String getZonaPostal() {
+        return zonaPostal;
+    }
+
+    public void setZonaPostal(String zonaPostal) {
+        this.zonaPostal = zonaPostal;
+    }
+    
 }
