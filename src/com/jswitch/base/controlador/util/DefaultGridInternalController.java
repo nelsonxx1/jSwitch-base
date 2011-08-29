@@ -38,8 +38,13 @@ public class DefaultGridInternalController extends GridController implements Gri
     protected Class t;
 
     public DefaultGridInternalController() {
-        listSubGrids=null;
-        miGrid=null;
+        listSubGrids = null;
+        miGrid = null;
+    }
+
+    public DefaultGridInternalController(GridControl miGrid) {
+        this.listSubGrids = null;
+        this.miGrid = null;
     }
 
     public DefaultGridInternalController(String classNameModelFullPath, String getMethodName, GridControl miGrid, DefaultGridInternalController... listSubGrids) {
@@ -68,6 +73,7 @@ public class DefaultGridInternalController extends GridController implements Gri
         return null;
     }
 
+    @Override
     public Response loadData(int action,
             int startIndex,
             Map filteredColumns,
