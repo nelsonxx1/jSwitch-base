@@ -13,12 +13,14 @@ import com.jswitch.base.modelo.util.ehts.Method;
 import javax.persistence.Version;
 import com.jswitch.base.modelo.entidades.auditoria.Auditable;
 import com.jswitch.base.modelo.entidades.auditoria.AuditoriaBasica;
+import javax.persistence.Table;
 
 /**
  *
  * @author Orlando Becerra
  */
 @Entity
+@Table(name="ALL_ValoresEstandares")
 public class ValoresEstandares extends BeanVO implements Serializable, Auditable {
 
     /**

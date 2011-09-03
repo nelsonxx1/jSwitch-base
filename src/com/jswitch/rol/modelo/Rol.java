@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Version;
 import javax.validation.constraints.Size;
 
@@ -20,6 +21,7 @@ import javax.validation.constraints.Size;
  * @author Luis Adrian Gonzalez Benavides
  */
 @Entity
+@Table(name="SYST_Rol")
 public class Rol extends BeanVO implements Serializable, Auditable {
 
     public Rol() {

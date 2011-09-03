@@ -18,12 +18,14 @@ import com.jswitch.persona.modelo.dominio.TipoTelefono2;
 import com.jswitch.base.modelo.util.bean.BeanVO;
 import com.jswitch.base.modelo.util.ehts.BusinessKey;
 import com.jswitch.base.modelo.util.ehts.Method;
+import javax.persistence.Table;
 
 /**
  *
  * @author bc
  */
 @Entity
+@Table(name="PERS_DefaultPersona")
 public class DefaultPersona extends BeanVO implements Serializable, Auditable {
 
     @Id

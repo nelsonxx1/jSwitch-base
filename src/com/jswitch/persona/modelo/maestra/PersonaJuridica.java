@@ -10,6 +10,7 @@ import com.jswitch.base.modelo.util.ehts.BusinessKey;
 import javax.validation.constraints.Past;
 import com.jswitch.base.modelo.Dominios.Ranking;
 import com.jswitch.base.modelo.Dominios.TipoContribuyente;
+import javax.persistence.Table;
 
 /**
  *  Clase Maestra de Personas Juridicas
@@ -20,6 +21,7 @@ import com.jswitch.base.modelo.Dominios.TipoContribuyente;
  * @author Nelson Moncada
  */
 @Entity
+@Table(name="PERS_PersonaJuridica")
 public class PersonaJuridica extends Persona {
 
     /**

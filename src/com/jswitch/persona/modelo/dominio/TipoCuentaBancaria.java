@@ -13,6 +13,7 @@ import com.jswitch.base.modelo.entidades.auditoria.Auditable;
 import com.jswitch.base.modelo.util.bean.BeanVO;
 import com.jswitch.base.modelo.util.ehts.BusinessKey;
 import com.jswitch.base.modelo.util.ehts.Method;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 /**
@@ -24,6 +25,7 @@ import javax.validation.constraints.Size;
  * @author Nelson Moncada
  */
 @Entity
+@Table(name="PERS_TipoCuentaBancaria")
 public class TipoCuentaBancaria extends BeanVO implements Serializable, Auditable {
 
     /**

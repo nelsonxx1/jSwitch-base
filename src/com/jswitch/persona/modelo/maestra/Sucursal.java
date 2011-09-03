@@ -21,6 +21,7 @@ import com.jswitch.base.modelo.interfaces.GridConSubGrids;
 import com.jswitch.base.modelo.util.bean.BeanVO;
 import com.jswitch.base.modelo.util.ehts.BusinessKey;
 import com.jswitch.base.modelo.util.ehts.Method;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 /**
@@ -28,6 +29,7 @@ import javax.validation.constraints.Size;
  * @author Enrique Becerra
  */
 @Entity
+@Table(name="PERS_Sucursal")
 public class Sucursal extends BeanVO implements Serializable, Auditable, GridConSubGrids {
 
     /**

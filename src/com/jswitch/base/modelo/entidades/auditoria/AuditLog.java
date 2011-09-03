@@ -1,9 +1,6 @@
 
-
 package com.jswitch.base.modelo.entidades.auditoria;
-
 import com.jswitch.base.modelo.HibernateUtil;
-import java.lang.reflect.Field;
 import org.hibernate.classic.Session;
 
 /**
@@ -16,6 +13,8 @@ public class AuditLog {
         System.out.println("guardo audit ***************");
         Session s = HibernateUtil.getSessionFactorySinIntercertor().openSession();
         try {
+            //TODO AUDITORIA PROBLEMAS
+            //FIXME AUDITORIA PROBLEMAS
             s.beginTransaction();
             s.save(entity);
             s.getTransaction().commit();

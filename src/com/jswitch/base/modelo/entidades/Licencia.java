@@ -13,6 +13,7 @@ import javax.validation.constraints.Future;
 import com.jswitch.base.modelo.util.bean.BeanVO;
 import com.jswitch.base.modelo.util.ehts.BusinessKey;
 import com.jswitch.base.modelo.util.ehts.Method;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -21,6 +22,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  * @author bc
  */
 @Entity
+@Table(name="SYST_Licencia")
 public class Licencia extends BeanVO implements Serializable {
 
     public Licencia() {

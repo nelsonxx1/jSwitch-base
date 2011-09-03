@@ -14,7 +14,6 @@ public class Eventos extends DefaultSaveEventListener implements PostLoadEventLi
 
     @Override
     protected Serializable saveWithGeneratedOrRequestedId(SaveOrUpdateEvent event) {
-        System.out.println("jaajjja2222");
         return super.saveWithGeneratedOrRequestedId(event);
     }
 

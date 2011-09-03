@@ -21,6 +21,7 @@ import com.jswitch.base.modelo.Dominios.Sexo;
 import com.jswitch.base.modelo.Dominios.TipoContribuyente;
 import com.jswitch.base.modelo.Dominios.TipoNombre;
 import java.util.Calendar;
+import javax.persistence.Table;
 
 /**
  *  Clase Maestra de Personas Naturales
@@ -32,6 +33,7 @@ import java.util.Calendar;
  */
 @Entity
 @EntityListeners(value = {PersonaNaturalEvents.class})
+@Table(name="PERS_PersonaNatural")
 public class PersonaNatural extends Persona {
 
     /**

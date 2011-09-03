@@ -3,7 +3,6 @@
 package com.jswitch.base.modelo.entidades.auditoria;
 
 import com.jswitch.base.controlador.General;
-import com.jswitch.base.modelo.HibernateUtil;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
@@ -12,7 +11,6 @@ import java.util.Set;
 import org.hibernate.CallbackException;
 import org.hibernate.EmptyInterceptor;
 import org.hibernate.Hibernate;
-import org.hibernate.classic.Session;
 import org.hibernate.collection.PersistentList;
 import org.hibernate.collection.PersistentSet;
 import org.hibernate.type.Type;

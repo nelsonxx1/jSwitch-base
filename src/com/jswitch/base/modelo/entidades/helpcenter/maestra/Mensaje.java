@@ -16,12 +16,14 @@ import com.jswitch.base.modelo.Dominios.Prioridad;
 import com.jswitch.base.modelo.util.bean.BeanVO;
 import com.jswitch.base.modelo.util.ehts.BusinessKey;
 import com.jswitch.base.modelo.util.ehts.Method;
+import javax.persistence.Table;
 
 /**
  *
  * @author bc
  */
 @Entity
+@Table(name="SYST_Mensaje")
 public class Mensaje extends BeanVO implements Serializable {
 
     public Mensaje() {

@@ -40,6 +40,7 @@ import javax.validation.constraints.Size;
 import javax.validation.constraints.Past;
 import com.jswitch.base.modelo.Dominios.Ranking;
 import com.jswitch.base.modelo.Dominios.TipoContribuyente;
+import javax.persistence.Table;
 
 /**
  * Clase Maestra Supertipo de Personas
@@ -60,6 +61,7 @@ import com.jswitch.base.modelo.Dominios.TipoContribuyente;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@Table(name="PERS_Persona")
 public class Persona extends BeanVO implements Serializable, Auditable {
 
     /**
