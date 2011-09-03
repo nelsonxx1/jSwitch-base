@@ -20,6 +20,8 @@ import com.jswitch.base.modelo.entidades.auditoria.Auditable;
 import com.jswitch.base.modelo.util.bean.BeanVO;
 import com.jswitch.base.modelo.util.ehts.BusinessKey;
 import com.jswitch.base.modelo.util.ehts.Method;
+import com.jswitch.persona.modelo.maestra.Persona;
+import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -35,6 +37,7 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@Table(name="ALL_Documento")
 public class Documento extends BeanVO implements Serializable, Auditable, Documentable {
 
     /**

@@ -20,6 +20,7 @@ import com.jswitch.persona.modelo.maestra.Persona;
 import com.jswitch.base.modelo.util.bean.BeanVO;
 import com.jswitch.base.modelo.util.ehts.BusinessKey;
 import com.jswitch.base.modelo.util.ehts.Method;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 
@@ -33,6 +34,8 @@ import javax.validation.constraints.NotNull;
  * @author Nelson Moncada
  */
 @Entity
+@Table(name="PERS_TelefonoPersona")
+
 public class TelefonoPersona extends BeanVO implements Serializable, Auditable {
 
     /**

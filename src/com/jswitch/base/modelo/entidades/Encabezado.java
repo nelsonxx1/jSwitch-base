@@ -11,12 +11,14 @@ import javax.swing.Icon;
 import com.jswitch.base.modelo.util.bean.BeanVO;
 import com.jswitch.base.modelo.util.ehts.BusinessKey;
 import com.jswitch.base.modelo.util.ehts.Method;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 /**
  * @author bc
  */
 @Entity
+@Table(name="SYST_Encabezado")
 public class Encabezado extends BeanVO implements Serializable {
     //TODO incluir a la persona que es de tipo productor para obtener sus datos
 

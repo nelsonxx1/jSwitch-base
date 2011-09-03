@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import com.jswitch.base.modelo.util.bean.BeanVO;
 import com.jswitch.base.modelo.util.ehts.BusinessKey;
 import com.jswitch.base.modelo.util.ehts.Method;
+import javax.persistence.Table;
 import javax.persistence.Version;
 import org.hibernate.validator.constraints.Email;
 import javax.validation.constraints.Size;
@@ -19,6 +20,7 @@ import javax.validation.constraints.NotNull;
  * @author Orlando Becerra
  */
 @Entity
+@Table(name="SYST_Empresa")
 public class Empresa extends BeanVO implements Serializable {
 
     /**

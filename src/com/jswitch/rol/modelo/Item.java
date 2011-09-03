@@ -19,12 +19,14 @@ import javax.validation.constraints.Size;
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * 
  * @author Luis Adrian Gonzalez Benavides
  */
 @Entity
+@Table(name="SYST_Item")
 public class Item extends BeanVO implements Serializable, Auditable {
 
     public Item() {

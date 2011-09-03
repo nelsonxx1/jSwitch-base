@@ -13,6 +13,8 @@ import com.jswitch.base.modelo.entidades.auditoria.Auditable;
 import com.jswitch.base.modelo.util.bean.BeanVO;
 import com.jswitch.base.modelo.util.ehts.BusinessKey;
 import com.jswitch.base.modelo.util.ehts.Method;
+import com.jswitch.persona.modelo.maestra.Persona;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 
@@ -26,6 +28,7 @@ import javax.validation.constraints.Size;
  * @author Nelson Moncada
  */
 @Entity
+@Table(name="ALL_Observacion")
 public class Observacion extends BeanVO implements Serializable, Auditable {
 
     /**

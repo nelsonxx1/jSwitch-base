@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Version;
 import javax.validation.constraints.Size;
 
@@ -23,6 +24,7 @@ import javax.validation.constraints.Size;
  * @author Nelson Moncada
  */
 @Entity
+@Table(name="SYST_Usuario")
 public class Usuario extends BeanVO implements Serializable, Auditable {
 
     public Usuario() {

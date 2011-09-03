@@ -13,6 +13,7 @@ import com.jswitch.base.modelo.Dominios.CategoriaReporte;
 import com.jswitch.base.modelo.util.bean.BeanVO;
 import com.jswitch.base.modelo.util.ehts.BusinessKey;
 import com.jswitch.base.modelo.util.ehts.Method;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 /**
@@ -20,6 +21,7 @@ import javax.validation.constraints.Size;
  * @author bc
  */
 @Entity
+@Table(name="SYST_Reporte")
 public class Reporte extends BeanVO implements Serializable {
 
     /**

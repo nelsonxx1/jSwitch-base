@@ -10,12 +10,14 @@ import javax.persistence.Version;
 import com.jswitch.base.modelo.util.bean.BeanVO;
 import com.jswitch.base.modelo.util.ehts.BusinessKey;
 import com.jswitch.base.modelo.util.ehts.Method;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 /**
  * @author Orlando Becerra
  */
 @Entity
+@Table(name="SYST_ParametroReporte")
 //TODO sacar de las tablas quitar entity ok
 public class ParametroReporte extends BeanVO implements Serializable {
 

@@ -14,6 +14,7 @@ import com.jswitch.base.modelo.util.bean.BeanVO;
 import com.jswitch.base.modelo.util.ehts.BusinessKey;
 import com.jswitch.base.modelo.util.ehts.Method;
 import java.util.ArrayList;
+import javax.persistence.Table;
 
 /**
  *
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 @Entity
 @org.hibernate.annotations.AccessType("field")
 @org.hibernate.annotations.Entity(mutable = false)
+@Table(name="SYST_AudiLogRecord")
 public class AuditLogRecord extends BeanVO implements Serializable {
 
     public AuditLogRecord() {

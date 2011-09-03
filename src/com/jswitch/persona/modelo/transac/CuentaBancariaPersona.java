@@ -32,7 +32,7 @@ import javax.validation.constraints.NotNull;
  * @author Nelson Moncada
  */
 @Entity
-@Table( uniqueConstraints={@UniqueConstraint(columnNames={"numero","banco_id","tipoCuenta_id"})})
+@Table(name="PERS_CuentaBancariaPersona", uniqueConstraints={@UniqueConstraint(columnNames={"numero","banco_id","tipoCuenta_id"})})
 public class CuentaBancariaPersona extends BeanVO implements Serializable, Auditable {
 
     /**
