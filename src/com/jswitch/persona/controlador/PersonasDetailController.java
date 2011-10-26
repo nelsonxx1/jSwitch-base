@@ -6,7 +6,6 @@ import com.jswitch.base.controlador.General;
 import com.jswitch.base.controlador.util.DefaultDetailFrameController;
 import java.awt.event.ActionEvent;
 import com.jswitch.base.modelo.HibernateUtil;
-import com.jswitch.base.modelo.entidades.auditoria.AuditLogInterceptor;
 import com.jswitch.persona.modelo.dominio.TipoPersona;
 import com.jswitch.persona.modelo.maestra.LNPersonaNatural;
 import com.jswitch.persona.modelo.maestra.Persona;
