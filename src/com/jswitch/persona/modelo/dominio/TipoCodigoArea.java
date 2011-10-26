@@ -26,7 +26,7 @@ import org.hibernate.validator.constraints.Range;
  * @author Nelson Moncada
  */
 @Entity
-@Table(name="PERS_TELF_TipoCodigoArea")
+@Table(name = "PERS_TELF_TipoCodigoArea")
 public class TipoCodigoArea extends BeanVO implements Serializable, Auditable {
 
     /**

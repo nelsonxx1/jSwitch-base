@@ -286,7 +286,7 @@ public class BuscarPersonaDialog extends InternalFrame {
                     }
 
                     new PersonasDetailController(null, (Persona) q.uniqueResult(), null);
-                } else {
+                    } else {
                     if (tp) {
                         values.add(persona.getTipoPersona().getId());
                         valueTypes.add(new LongType());

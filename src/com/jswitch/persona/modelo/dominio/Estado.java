@@ -25,7 +25,7 @@ import javax.validation.constraints.Size;
  * @author Nelson Moncada
  */
 @Entity
-@Table(name="PERD_DIR_Estado")
+@Table(name="PERS_DIR_Estado")
 public class Estado extends BeanVO implements Serializable, Auditable {
 
     /**
