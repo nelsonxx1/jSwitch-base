@@ -401,7 +401,6 @@ public class Dominios {
         return dominio;
     }
 
-    
     public static enum TipoPerdida {
 
         NINGUNO, PARCIAL, TOTAL
@@ -464,7 +463,9 @@ public class Dominios {
 
     public static enum Modulos {
 
-        POLIZAS, COMUNICADOS, FINANCIAMIENTOS, PERSONAS, RECIBOS, SINIESTROS, VEHICULOS
+        PERSONAS, SINIESTROS, POLIZAS, ASEGURADOS, TITULARES, CERTIFICADOS,
+        BENEFICIARIOS
+        //, COMUNICADOS, FINANCIAMIENTOS, VEHICULOS
     }
 
     public static Domain Modulos() { //listo
