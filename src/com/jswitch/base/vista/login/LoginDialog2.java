@@ -1,7 +1,4 @@
-
-
 package com.jswitch.base.vista.login;
-
 
 import com.jswitch.base.controlador.General;
 import java.awt.Dimension;
@@ -24,7 +21,6 @@ import org.openswing.swing.domains.java.Domain;
 import org.openswing.swing.permissions.client.LoginController;
 import org.openswing.swing.permissions.java.CryptUtils;
 import org.openswing.swing.util.client.ClientSettings;
-
 
 /**
  *
@@ -406,9 +402,12 @@ public class LoginDialog2 extends javax.swing.JDialog implements ItemListener {
         if (appId != null) {
             loadAccount();
         }
+        jLabel1.setVisible(false);
+        jComboBox1.setVisible(false);
         pack();
         super.getParent().setLocation(-100, -100);
         super.getParent().setVisible(true);
+
         setVisible(true);
     }
 
@@ -529,21 +528,16 @@ public class LoginDialog2 extends javax.swing.JDialog implements ItemListener {
         } else {
             languagesComboBox.setEnabled(false);
         }
-        setLocation((Toolkit.getDefaultToolkit().getScreenSize().width - this.getWidth()) / 2, (Toolkit.
-                getDefaultToolkit().getScreenSize().height - this.getHeight()) / 2);
+        setLocation((Toolkit.getDefaultToolkit().getScreenSize().width - this.getWidth()) / 2, (Toolkit.getDefaultToolkit().getScreenSize().height - this.getHeight()) / 2);
     }
 
     private void updateLanguage(String lang) {
         ClientSettings.getInstance().setLanguage(lang);
         //setTitle(ClientSettings.getInstance().getResources().getResource(getTitle()));
-        loginButton.setText(ClientSettings.getInstance().getResources().getResource(loginButton.
-                getText()));
-        usernameLabel.setText(ClientSettings.getInstance().getResources().getResource(usernameLabel.
-                getText()));
-        passwordLabel.setText(ClientSettings.getInstance().getResources().getResource(passwordLabel.
-                getText()));
-        exitButton.setText(ClientSettings.getInstance().getResources().getResource(exitButton.
-                getText()));
+        loginButton.setText(ClientSettings.getInstance().getResources().getResource(loginButton.getText()));
+        usernameLabel.setText(ClientSettings.getInstance().getResources().getResource(usernameLabel.getText()));
+        passwordLabel.setText(ClientSettings.getInstance().getResources().getResource(passwordLabel.getText()));
+        exitButton.setText(ClientSettings.getInstance().getResources().getResource(exitButton.getText()));
 
     }
 
@@ -652,8 +646,7 @@ public class LoginDialog2 extends javax.swing.JDialog implements ItemListener {
                     new LnF("Lipstik", "com.lipstikLF.LipstikLookAndFeel"),
                     new LnF("PlasticXP", "com.jgoodies.looks.plastic.PlasticXPLookAndFeel"),
                     new LnF("Oracle", "oracle.bali.ewt.olaf.OracleLookAndFeel"),
-                    new LnF("CrossPlatform", javax.swing.UIManager.
-                    getCrossPlatformLookAndFeelClassName()),
+                    new LnF("CrossPlatform", javax.swing.UIManager.getCrossPlatformLookAndFeelClassName()),
                     new LnF("System", javax.swing.UIManager.getSystemLookAndFeelClassName())
                 };
     }
@@ -673,7 +666,6 @@ class LnF {
     public String toString() {
         return nombre;
     }
-
 }
 
 class LoginDialog_loginButton_actionAdapter implements java.awt.event.ActionListener {
@@ -687,7 +679,6 @@ class LoginDialog_loginButton_actionAdapter implements java.awt.event.ActionList
     public void actionPerformed(ActionEvent e) {
         adaptee.loginButton_actionPerformed(e);
     }
-
 }
 
 class LoginDialog_exitButton_actionAdapter implements java.awt.event.ActionListener {
@@ -701,7 +692,6 @@ class LoginDialog_exitButton_actionAdapter implements java.awt.event.ActionListe
     public void actionPerformed(ActionEvent e) {
         adaptee.exitButton_actionPerformed(e);
     }
-
 }
 
 class LoginDialog_passwdTF_actionAdapter implements java.awt.event.ActionListener {
@@ -715,7 +705,6 @@ class LoginDialog_passwdTF_actionAdapter implements java.awt.event.ActionListene
     public void actionPerformed(ActionEvent e) {
         adaptee.passwdTF_actionPerformed(e);
     }
-
 }
 
 class LoginDialog_this_windowAdapter extends java.awt.event.WindowAdapter {
@@ -730,7 +719,6 @@ class LoginDialog_this_windowAdapter extends java.awt.event.WindowAdapter {
     public void windowClosed(WindowEvent e) {
         adaptee.this_windowClosed(e);
     }
-
 }
 
 class LoginDialog_usernameTF_actionAdapter implements java.awt.event.ActionListener {
@@ -744,5 +732,4 @@ class LoginDialog_usernameTF_actionAdapter implements java.awt.event.ActionListe
     public void actionPerformed(ActionEvent e) {
         adaptee.usernameTF_actionPerformed(e);
     }
-
 }
