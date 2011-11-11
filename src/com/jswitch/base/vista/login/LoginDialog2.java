@@ -1,7 +1,4 @@
-
-
 package com.jswitch.base.vista.login;
-
 
 import com.jswitch.base.controlador.General;
 import java.awt.Dimension;
@@ -24,7 +21,6 @@ import org.openswing.swing.domains.java.Domain;
 import org.openswing.swing.permissions.client.LoginController;
 import org.openswing.swing.permissions.java.CryptUtils;
 import org.openswing.swing.util.client.ClientSettings;
-
 
 /**
  *
@@ -109,7 +105,7 @@ public class LoginDialog2 extends javax.swing.JDialog implements ItemListener {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(loginButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(exitButton)
                 .addContainerGap())
         );
@@ -131,9 +127,9 @@ public class LoginDialog2 extends javax.swing.JDialog implements ItemListener {
 
         jLabel1.setText("Look and Feel");
 
+        jComboBox1.setEditable(true);
         jComboBox1.setModel(new DefaultComboBoxModel(getLnFs()));
         jComboBox1.setToolTipText("Seleccione un tipo de manejador de ventanas");
-        jComboBox1.setEnabled(false);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -148,14 +144,14 @@ public class LoginDialog2 extends javax.swing.JDialog implements ItemListener {
                             .addComponent(passwordLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(usernameTF, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
-                            .addComponent(passwdTF, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)))
+                            .addComponent(usernameTF, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                            .addComponent(passwdTF, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, 0, 88, Short.MAX_VALUE))
+                        .addComponent(jComboBox1, 0, 130, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(fechaActual, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                        .addComponent(fechaActual, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -183,7 +179,7 @@ public class LoginDialog2 extends javax.swing.JDialog implements ItemListener {
                 .addComponent(fechaActual, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         jPanel6Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jComboBox1, jLabel1, passwdTF, passwordLabel, usernameLabel, usernameTF});
@@ -529,21 +525,16 @@ public class LoginDialog2 extends javax.swing.JDialog implements ItemListener {
         } else {
             languagesComboBox.setEnabled(false);
         }
-        setLocation((Toolkit.getDefaultToolkit().getScreenSize().width - this.getWidth()) / 2, (Toolkit.
-                getDefaultToolkit().getScreenSize().height - this.getHeight()) / 2);
+        setLocation((Toolkit.getDefaultToolkit().getScreenSize().width - this.getWidth()) / 2, (Toolkit.getDefaultToolkit().getScreenSize().height - this.getHeight()) / 2);
     }
 
     private void updateLanguage(String lang) {
         ClientSettings.getInstance().setLanguage(lang);
         //setTitle(ClientSettings.getInstance().getResources().getResource(getTitle()));
-        loginButton.setText(ClientSettings.getInstance().getResources().getResource(loginButton.
-                getText()));
-        usernameLabel.setText(ClientSettings.getInstance().getResources().getResource(usernameLabel.
-                getText()));
-        passwordLabel.setText(ClientSettings.getInstance().getResources().getResource(passwordLabel.
-                getText()));
-        exitButton.setText(ClientSettings.getInstance().getResources().getResource(exitButton.
-                getText()));
+        loginButton.setText(ClientSettings.getInstance().getResources().getResource(loginButton.getText()));
+        usernameLabel.setText(ClientSettings.getInstance().getResources().getResource(usernameLabel.getText()));
+        passwordLabel.setText(ClientSettings.getInstance().getResources().getResource(passwordLabel.getText()));
+        exitButton.setText(ClientSettings.getInstance().getResources().getResource(exitButton.getText()));
 
     }
 
@@ -646,14 +637,13 @@ public class LoginDialog2 extends javax.swing.JDialog implements ItemListener {
 
     private LnF[] getLnFs() {
         return new LnF[]{
+                    new LnF("Nimbus", "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"),
                     new LnF("Tiny2", "de.muntjak.tinylookandfeel.TinyLookAndFeel"),
                     new LnF("Plastic3D", "com.jgoodies.looks.plastic.Plastic3DLookAndFeel"),
-                    new LnF("Nimbus", "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"),
                     new LnF("Lipstik", "com.lipstikLF.LipstikLookAndFeel"),
                     new LnF("PlasticXP", "com.jgoodies.looks.plastic.PlasticXPLookAndFeel"),
                     new LnF("Oracle", "oracle.bali.ewt.olaf.OracleLookAndFeel"),
-                    new LnF("CrossPlatform", javax.swing.UIManager.
-                    getCrossPlatformLookAndFeelClassName()),
+                    new LnF("CrossPlatform", javax.swing.UIManager.getCrossPlatformLookAndFeelClassName()),
                     new LnF("System", javax.swing.UIManager.getSystemLookAndFeelClassName())
                 };
     }
@@ -671,9 +661,10 @@ class LnF {
 
     @Override
     public String toString() {
+        System.out.println("get lnk");
+        System.out.println(nombre);
         return nombre;
     }
-
 }
 
 class LoginDialog_loginButton_actionAdapter implements java.awt.event.ActionListener {
@@ -687,7 +678,6 @@ class LoginDialog_loginButton_actionAdapter implements java.awt.event.ActionList
     public void actionPerformed(ActionEvent e) {
         adaptee.loginButton_actionPerformed(e);
     }
-
 }
 
 class LoginDialog_exitButton_actionAdapter implements java.awt.event.ActionListener {
@@ -701,7 +691,6 @@ class LoginDialog_exitButton_actionAdapter implements java.awt.event.ActionListe
     public void actionPerformed(ActionEvent e) {
         adaptee.exitButton_actionPerformed(e);
     }
-
 }
 
 class LoginDialog_passwdTF_actionAdapter implements java.awt.event.ActionListener {
@@ -715,7 +704,6 @@ class LoginDialog_passwdTF_actionAdapter implements java.awt.event.ActionListene
     public void actionPerformed(ActionEvent e) {
         adaptee.passwdTF_actionPerformed(e);
     }
-
 }
 
 class LoginDialog_this_windowAdapter extends java.awt.event.WindowAdapter {
@@ -730,7 +718,6 @@ class LoginDialog_this_windowAdapter extends java.awt.event.WindowAdapter {
     public void windowClosed(WindowEvent e) {
         adaptee.this_windowClosed(e);
     }
-
 }
 
 class LoginDialog_usernameTF_actionAdapter implements java.awt.event.ActionListener {
@@ -744,5 +731,4 @@ class LoginDialog_usernameTF_actionAdapter implements java.awt.event.ActionListe
     public void actionPerformed(ActionEvent e) {
         adaptee.usernameTF_actionPerformed(e);
     }
-
 }
