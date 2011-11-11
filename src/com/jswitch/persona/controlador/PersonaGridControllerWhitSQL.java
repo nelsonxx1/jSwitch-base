@@ -22,6 +22,6 @@ public class PersonaGridControllerWhitSQL extends DefaultGridControllerWhitSQL{
 
     @Override
     public void doubleClick(int rowNumber, ValueObject persistentObject) {
-        new PersonasDetailController(null, (BeanVO) persistentObject, null);
+            new PersonasDetailController(null, (BeanVO) persistentObject, null);
+        }
     }
-}

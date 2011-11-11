@@ -33,7 +33,7 @@ import javax.persistence.Table;
  */
 @Entity
 @EntityListeners(value = {PersonaNaturalEvents.class})
-@Table(name="PERS_PersonaNatural")
+@Table(name = "PERS_PersonaNatural")
 public class PersonaNatural extends Persona {
 
     /**
@@ -131,7 +131,6 @@ public class PersonaNatural extends Persona {
     @Column
     @BusinessKey
     private String ocupacion;
-
     @Transient
     private Integer edad;
 
@@ -307,14 +306,15 @@ public class PersonaNatural extends Persona {
                 nac.setTime(fechaNacimiento);
 
 
-                int yh=hoy.get(Calendar.YEAR),yn=nac.get(Calendar.YEAR);
-                int mh=hoy.get(Calendar.MONTH),mn=nac.get(Calendar.MONTH);
-                int dh=hoy.get(Calendar.DAY_OF_MONTH),dn=nac.get(Calendar.DAY_OF_MONTH);
-                edad = yh-yn;
-                if((mh-mn)<0)
+                int yh = hoy.get(Calendar.YEAR), yn = nac.get(Calendar.YEAR);
+                int mh = hoy.get(Calendar.MONTH), mn = nac.get(Calendar.MONTH);
+                int dh = hoy.get(Calendar.DAY_OF_MONTH), dn = nac.get(Calendar.DAY_OF_MONTH);
+                edad = yh - yn;
+                if ((mh - mn) < 0) {
                     edad--;
-                else if((dh-dn)<0)
+                } else if ((mh == mn) && (dh - dn) < 0) {
                     edad--;
+                }
 
             }
         }

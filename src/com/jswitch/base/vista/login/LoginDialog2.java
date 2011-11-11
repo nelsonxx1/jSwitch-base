@@ -402,9 +402,12 @@ public class LoginDialog2 extends javax.swing.JDialog implements ItemListener {
         if (appId != null) {
             loadAccount();
         }
+        jLabel1.setVisible(false);
+        jComboBox1.setVisible(false);
         pack();
         super.getParent().setLocation(-100, -100);
         super.getParent().setVisible(true);
+
         setVisible(true);
     }
 
