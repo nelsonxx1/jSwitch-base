@@ -88,6 +88,7 @@ public class PictureCaptureCellEditor extends AbstractCellEditor implements Tabl
     /** grid controller */
     private GridController gridController = null;
     private static JFileChooser f = DefaultFileChooser.getFileChooser();
+
     /**
      * Constructor.
      * @param text button text
@@ -126,12 +127,13 @@ public class PictureCaptureCellEditor extends AbstractCellEditor implements Tabl
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                int res1 = OptionPane.showConfirmDialog(
-                        ClientUtils.getParentFrame(table),
-                        "capturare.from.cam?",
-                        "captura.automatic",
-                        JOptionPane.YES_NO_OPTION,
-                        JOptionPane.QUESTION_MESSAGE);
+//                int res1 = OptionPane.showConfirmDialog(
+//                        ClientUtils.getParentFrame(table),
+//                        "capturare.from.cam?",
+//                        "captura.automatic",
+//                        JOptionPane.YES_NO_OPTION,
+//                        JOptionPane.QUESTION_MESSAGE);
+                int res1 = JOptionPane.NO_OPTION;
                 if (res1 == JOptionPane.YES_OPTION) {
                     PictureCaptureDialogController p = new PictureCaptureDialogController();
                     if (p.isAllOk) {
@@ -156,7 +158,7 @@ public class PictureCaptureCellEditor extends AbstractCellEditor implements Tabl
                         }
                     }
                 } else if (res1 == JOptionPane.NO_OPTION) {
-                    
+
                     f.setDialogTitle(ClientSettings.getInstance().getResources().getResource("upload file"));
                     f.setDialogType(JFileChooser.OPEN_DIALOG);
                     f.setApproveButtonText(ClientSettings.getInstance().getResources().getResource("upload file"));
@@ -254,14 +256,14 @@ public class PictureCaptureCellEditor extends AbstractCellEditor implements Tabl
             try {
                 selColor = new Color(
                         Math.min(255,
-                        2 * ((Grid) table).getActiveCellBackgroundColor().getRed() -
-                        ClientSettings.GRID_CELL_BACKGROUND.getRed()),
+                        2 * ((Grid) table).getActiveCellBackgroundColor().getRed()
+                        - ClientSettings.GRID_CELL_BACKGROUND.getRed()),
                         Math.min(255,
-                        2 * ((Grid) table).getActiveCellBackgroundColor().getGreen() -
-                        ClientSettings.GRID_CELL_BACKGROUND.getGreen()),
+                        2 * ((Grid) table).getActiveCellBackgroundColor().getGreen()
+                        - ClientSettings.GRID_CELL_BACKGROUND.getGreen()),
                         Math.min(255,
-                        2 * ((Grid) table).getActiveCellBackgroundColor().getBlue() -
-                        ClientSettings.GRID_CELL_BACKGROUND.getBlue()));
+                        2 * ((Grid) table).getActiveCellBackgroundColor().getBlue()
+                        - ClientSettings.GRID_CELL_BACKGROUND.getBlue()));
             } catch (Exception ex1) {
                 selColor = ((Grid) table).getActiveCellBackgroundColor();
             }
@@ -321,9 +323,9 @@ public class PictureCaptureCellEditor extends AbstractCellEditor implements Tabl
 
 
 
-        if (table instanceof Grid &&
-                fileNameAttributeName != null &&
-                !fileNameAttributeName.equals("")) {
+        if (table instanceof Grid
+                && fileNameAttributeName != null
+                && !fileNameAttributeName.equals("")) {
             Object obj = ((Grid) table).getGrids().getVOListTableModel().getField(row, fileNameAttributeName);
             fileName.setText(obj == null ? "" : obj.toString());
         }

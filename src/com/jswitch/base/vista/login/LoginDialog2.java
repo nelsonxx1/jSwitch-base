@@ -402,8 +402,9 @@ public class LoginDialog2 extends javax.swing.JDialog implements ItemListener {
         if (appId != null) {
             loadAccount();
         }
-        jLabel1.setVisible(false);
-        jComboBox1.setVisible(false);
+        //jLabel1.setVisible(false);
+        //jComboBox1.setSelectedIndex(0);
+        //jComboBox1.setVisible(false);
         pack();
         super.getParent().setLocation(-100, -100);
         super.getParent().setVisible(true);
@@ -640,8 +641,8 @@ public class LoginDialog2 extends javax.swing.JDialog implements ItemListener {
 
     private LnF[] getLnFs() {
         return new LnF[]{
-                    new LnF("Nimbus", "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"),
                     new LnF("Tiny2", "de.muntjak.tinylookandfeel.TinyLookAndFeel"),
+                    new LnF("Nimbus", "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"),
                     new LnF("Plastic3D", "com.jgoodies.looks.plastic.Plastic3DLookAndFeel"),
                     new LnF("Lipstik", "com.lipstikLF.LipstikLookAndFeel"),
                     new LnF("PlasticXP", "com.jgoodies.looks.plastic.PlasticXPLookAndFeel"),
@@ -664,8 +665,6 @@ class LnF {
 
     @Override
     public String toString() {
-        System.out.println("get lnk");
-        System.out.println(nombre);
         return nombre;
     }
 }
