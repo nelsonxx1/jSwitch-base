@@ -37,12 +37,12 @@ public class ReportesGridController extends DefaultGridFrameController {
         ReportesGridFrame frame = (ReportesGridFrame) gridFrame;
         Session s = null;
         try {
-            filteredColumns.put(
-                    "mostarEnListado",
-                    new FilterWhereClause[]{
-                        new FilterWhereClause("mostarEnListado", "=", true),
-                        null
-                    });
+//            filteredColumns.put(
+//                    "mostarEnListado",
+//                    new FilterWhereClause[]{
+//                        new FilterWhereClause("mostarEnListado", "=", true),
+//                        null
+//                    });
             String sql = "FROM " + claseModeloFullPath + " C ";
             boolean sw = false;
             if (frame.getCategoria() != null) {
