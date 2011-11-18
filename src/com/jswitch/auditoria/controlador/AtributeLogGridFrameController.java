@@ -2,8 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 package com.jswitch.auditoria.controlador;
 
 import com.jswitch.auditoria.modelo.AtributoValor;
@@ -11,9 +9,13 @@ import com.jswitch.auditoria.vista.AtributeLogGridFrame;
 import com.jswitch.base.controlador.logger.LoggerUtil;
 import com.jswitch.base.modelo.util.bean.BeanVO;
 import java.awt.Color;
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import org.hibernate.collection.PersistentBag;
 import org.hibernate.collection.PersistentList;
 import org.hibernate.collection.PersistentSet;
 import org.openswing.swing.message.receive.java.Response;
@@ -71,6 +73,14 @@ public class AtributeLogGridFrameController extends GridController implements Gr
                 atributoValors.add(new AtributoValor("----", "-----"));
             }
             new AtributeLogGridFrameController(atributoValors);
+        }else if (valor.getValor() instanceof PersistentBag) {
+            PersistentBag set = (PersistentBag) valor.getValor();
+            ArrayList<AtributoValor> atributoValors = new ArrayList<AtributoValor>(0);
+            for (Object object : set) {
+                funX(object, atributoValors);
+                atributoValors.add(new AtributoValor("----", "-----"));
+            }
+            new AtributeLogGridFrameController(atributoValors);
         }
     }
 
@@ -78,8 +88,13 @@ public class AtributeLogGridFrameController extends GridController implements Gr
         Method[] methods = object.getClass().getMethods();
         for (int i = 0; i < methods.length; i++) {
             if (methods[i].getName().startsWith("get") && !methods[i].getName().startsWith("getClass")) {
+
                 try {
-                    atributoValors.add(new AtributoValor(methods[i].getName().substring(3), methods[i].invoke(object)));
+                                       
+                    if (!methods[i].getReturnType().equals(Set.class) && !methods[i].getReturnType().equals(List.class)) {
+                        atributoValors.add(new AtributoValor(methods[i].getName().substring(3), methods[i].invoke(object)));
+                    }
+
                 } catch (Exception ex) {
                     LoggerUtil.error(this.getClass(), "doubleClick", ex);
                 }

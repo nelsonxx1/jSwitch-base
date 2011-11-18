@@ -129,15 +129,15 @@ public class AuditLogInterceptor extends EmptyInterceptor {
             throws CallbackException {
         try {
             for (Iterator it = inserts.iterator(); it.hasNext();) {
-                System.out.println("ins ** :" + inserts.size());
+                //System.out.println("ins ** :" + inserts.size());
                 AuditLog.logEvent((AuditLogRecord) it.next());
             }
             for (Iterator it = updates.iterator(); it.hasNext();) {
-                System.out.println("up ** :" + updates.size());
+                //System.out.println("up ** :" + updates.size());
                 AuditLog.logEvent((AuditLogRecord) it.next());
             }
             for (Iterator it = delete.iterator(); it.hasNext();) {
-                System.out.println("del ** :" + delete.size());
+                //System.out.println("del ** :" + delete.size());
                 AuditLog.logEvent((AuditLogRecord) it.next());
             }
         } finally {

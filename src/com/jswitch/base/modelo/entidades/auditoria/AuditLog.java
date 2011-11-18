@@ -10,7 +10,7 @@ import org.hibernate.classic.Session;
 public class AuditLog {
 
     public static void logEvent(AuditLogRecord entity) {
-        System.out.println("guardo audit ***************");
+        //System.out.println("guardo audit ***************");
         Session s = HibernateUtil.getSessionFactorySinIntercertor().openSession();
         try {
             //TODO AUDITORIA PROBLEMAS
