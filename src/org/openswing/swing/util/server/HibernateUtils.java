@@ -1,5 +1,6 @@
 package org.openswing.swing.util.server;
 
+import com.jswitch.base.modelo.HibernateUtil;
 import java.util.*;
 
 import org.hibernate.*;
@@ -276,7 +277,6 @@ public class HibernateUtils {
 //        currentSortedColumns.set(i,hsqlAttr);
 //      }
 //    }
-
 
         // fill in "attributesMap" according to attributes defined in xxx.hdm.xml...
         ClassMetadata meta = sessions.getClassMetadata(valueObjectType);

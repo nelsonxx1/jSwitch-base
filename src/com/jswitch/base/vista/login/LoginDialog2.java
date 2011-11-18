@@ -373,7 +373,9 @@ public class LoginDialog2 extends javax.swing.JDialog implements ItemListener {
         super(parentFrame == null ? new JFrame("jSipol Express Edition") : parentFrame, true);
 
         initComponents();
-
+        jComboBox1.setVisible(false);
+        jLabel1.setText("");
+        
         storeAccountCheckBox.setVisible(false);
         this.getRootPane().setDefaultButton(loginButton);
         SimpleDateFormat dateFormatActual = new SimpleDateFormat("EEEEE, dd'/'MM'/'yyyy");
