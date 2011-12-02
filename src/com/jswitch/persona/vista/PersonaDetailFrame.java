@@ -205,6 +205,7 @@ public class PersonaDetailFrame extends DefaultDetailFrame {
         codLookupColumn1 = new org.openswing.swing.table.columns.client.CodLookupColumn();
         codLookupColumn3 = new org.openswing.swing.table.columns.client.CodLookupColumn();
         textColumn4 = new org.openswing.swing.table.columns.client.TextColumn();
+        checkBoxColumn2 = new org.openswing.swing.table.columns.client.CheckBoxColumn();
         textColumn5 = new org.openswing.swing.table.columns.client.TextColumn();
         jPanel6 = new javax.swing.JPanel();
         insertButton3 = new org.openswing.swing.client.InsertButton();
@@ -1367,8 +1368,16 @@ public class PersonaDetailFrame extends DefaultDetailFrame {
         textColumn4.setColumnName("numero");
         textColumn4.setEditableOnEdit(true);
         textColumn4.setEditableOnInsert(true);
+        textColumn4.setMaxCharacters(20);
         textColumn4.setPreferredWidth(170);
         gridControl1.getColumnContainer().add(textColumn4);
+
+        checkBoxColumn2.setColumnName("domicilio");
+        checkBoxColumn2.setColumnRequired(false);
+        checkBoxColumn2.setEditableOnEdit(true);
+        checkBoxColumn2.setEditableOnInsert(true);
+        checkBoxColumn2.setPreferredWidth(50);
+        gridControl1.getColumnContainer().add(checkBoxColumn2);
 
         textColumn5.setColumnName("observacion");
         textColumn5.setColumnRequired(false);
@@ -2395,6 +2404,7 @@ public class PersonaDetailFrame extends DefaultDetailFrame {
     private javax.swing.JPanel barraNatural;
     private org.openswing.swing.table.columns.client.ButtonColumn buttonColumn1;
     private org.openswing.swing.table.columns.client.CheckBoxColumn checkBoxColumn1;
+    private org.openswing.swing.table.columns.client.CheckBoxColumn checkBoxColumn2;
     private org.openswing.swing.client.CheckBoxControl checkBoxControl2;
     private org.openswing.swing.client.CheckBoxControl checkBoxControl3;
     private org.openswing.swing.client.CheckBoxControl checkBoxControl4;

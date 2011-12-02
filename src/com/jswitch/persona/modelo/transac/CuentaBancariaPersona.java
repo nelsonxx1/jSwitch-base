@@ -32,7 +32,8 @@ import javax.validation.constraints.NotNull;
  * @author Nelson Moncada
  */
 @Entity
-@Table(name="PERS_CuentaBancariaPersona", uniqueConstraints={@UniqueConstraint(columnNames={"numero","banco_id","tipoCuenta_id"})})
+@Table(name = "PERS_CuentaBancariaPersona", uniqueConstraints = {
+    @UniqueConstraint(columnNames = {"numero", "banco_id", "tipoCuenta_id"})})
 public class CuentaBancariaPersona extends BeanVO implements Serializable, Auditable {
 
     /**
@@ -47,7 +48,7 @@ public class CuentaBancariaPersona extends BeanVO implements Serializable, Audit
      * Numero de cuenta
      */
     @Column
-    @Size(min = 2, max = 50)
+    @Size(min = 20, max = 20)
     @BusinessKey
     private String numero;
     /**
@@ -71,6 +72,12 @@ public class CuentaBancariaPersona extends BeanVO implements Serializable, Audit
     @BusinessKey(include = Method.TO_STRING)
     private TipoCuentaBancaria tipoCuenta;
     /**
+     * 
+     */
+    @Column
+    @BusinessKey
+    private Boolean domicilio;
+    /**
      */
     @Version
     @Column
@@ -82,7 +89,9 @@ public class CuentaBancariaPersona extends BeanVO implements Serializable, Audit
     @BusinessKey
     private AuditoriaBasica auditoria;
     private transient Persona persona;
+
     public CuentaBancariaPersona() {
+        this.domicilio= Boolean.FALSE;
     }
 
     public CuentaBancariaPersona(String numero, String observacion, Persona banco, TipoCuentaBancaria tipoCuenta, AuditoriaBasica auditoria) {
@@ -91,6 +100,7 @@ public class CuentaBancariaPersona extends BeanVO implements Serializable, Audit
         this.banco = banco;
         this.tipoCuenta = tipoCuenta;
         this.auditoria = auditoria;
+        this.domicilio= Boolean.FALSE;
     }
 
     public Persona getBanco() {
@@ -157,4 +167,11 @@ public class CuentaBancariaPersona extends BeanVO implements Serializable, Audit
         this.persona = persona;
     }
 
+    public Boolean getDomicilio() {
+        return domicilio;
+    }
+
+    public void setDomicilio(Boolean domicilio) {
+        this.domicilio = domicilio;
+    }
 }
