@@ -139,7 +139,7 @@ public class DefaultGridInternalController extends GridController implements Gri
                 }
                 return new ErrorResponse(LoggerUtil.isInvalidStateException(this.getClass(), "insertRecords", ex));
             } finally {
-                miGrid.reloadData();
+//                miGrid.reloadData();
 //                if(miGrid.getReloadButton()!=null)
 //                    miGrid.getReloadButton().doClick();
                 s.close();
