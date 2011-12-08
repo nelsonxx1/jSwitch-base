@@ -61,7 +61,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name="PERS_Persona")
+@Table(name = "PERS_Persona")
 public class Persona extends BeanVO implements Serializable, Auditable {
 
     /**
@@ -74,6 +74,7 @@ public class Persona extends BeanVO implements Serializable, Auditable {
     private Long id;
     /**
      * Codigo en Archivo
+     * donde conseguir el archivo fisico
      */
     @Column
     @BusinessKey
@@ -220,15 +221,29 @@ public class Persona extends BeanVO implements Serializable, Auditable {
     @BusinessKey
     private AuditoriaBasica auditoria;
 
+    /**
+     * Crea una instancia de Persona
+     */
     public Persona() {
-
-        auditoria=new AuditoriaBasica();
+        auditoria = new AuditoriaBasica();
     }
 
+    /**
+     * Crea una instancia de Persona
+     * @param rif 
+     */
     public Persona(Rif rif) {
         this.rif = rif;
     }
 
+    /**
+     * Crea una instancia de Persona
+     * @param rif
+     * @param ranking
+     * @param tipoContribuyente
+     * @param fechaUltimoBalance
+     * @param gobierno 
+     */
     public Persona(Rif rif, Ranking ranking, TipoContribuyente tipoContribuyente, Date fechaUltimoBalance, Boolean gobierno) {
         this.gobierno = gobierno;
         this.rif = rif;
@@ -237,6 +252,16 @@ public class Persona extends BeanVO implements Serializable, Auditable {
         this.fechaUltimoBalance = fechaUltimoBalance;
     }
 
+    /**
+     * Crea una instancia de Persona
+     * @param rif
+     * @param ranking
+     * @param tipoContribuyente
+     * @param fechaUltimoBalance
+     * @param gobierno
+     * @param capacidadEconomica
+     * @param actividadEconomica 
+     */
     public Persona(Rif rif, Ranking ranking, TipoContribuyente tipoContribuyente, Date fechaUltimoBalance, Boolean gobierno, TipoCapacidadEconomica capacidadEconomica, TipoActividadEconomica actividadEconomica) {
         this.gobierno = gobierno;
         this.rif = rif;
@@ -247,178 +272,394 @@ public class Persona extends BeanVO implements Serializable, Auditable {
         this.actividadEconomica = actividadEconomica;
     }
 
+    /**
+     * Actividad Economica de la persona
+     * @return the actividadEconomica
+     */
     public TipoActividadEconomica getActividadEconomica() {
         return actividadEconomica;
     }
 
-    public void setActividadEconomica(TipoActividadEconomica actividadEconomica) {
-        this.actividadEconomica = actividadEconomica;
+    /**
+     *
+     * @return the alias2
+     */
+    public String getAlias2() {
+        return alias2;
     }
 
-    public TipoCapacidadEconomica getCapacidadEconomica() {
-        return capacidadEconomica;
-    }
-
-    public void setCapacidadEconomica(TipoCapacidadEconomica capacidadEconomica) {
-        this.capacidadEconomica = capacidadEconomica;
-    }
-
-    public Set<CuentaBancariaPersona> getCuentasBancarias() {
-        return cuentasBancarias;
-    }
-
-    public void setCuentasBancarias(Set<CuentaBancariaPersona> cuentasBancarias) {
-        this.cuentasBancarias = cuentasBancarias;
-    }
-
-    public Set<DireccionPersona> getDirecciones() {
-        return direcciones;
-    }
-
-    public void setDirecciones(Set<DireccionPersona> direcciones) {
-        this.direcciones = direcciones;
-    }
-
-    public Set<Documento> getDocumentos() {
-        return documentos;
-    }
-
-    public void setDocumentos(Set<Documento> documentos) {
-        this.documentos = documentos;
-    }
-
-    public Date getFechaUltimoBalance() {
-        return fechaUltimoBalance;
-    }
-
-    public void setFechaUltimoBalance(Date fechaUltimoBalance) {
-        this.fechaUltimoBalance = fechaUltimoBalance;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNombreCorto() {
-        return nombreCorto;
-    }
-
-    public void setNombreCorto(String nombreCorto) {
-        this.nombreCorto = nombreCorto;
-    }
-
-    public String getNombreLargo() {
-        return nombreLargo;
-    }
-
-    public void setNombreLargo(String nombreLargo) {
-        this.nombreLargo = nombreLargo;
-    }
-
-    public Set<Observacion> getObservaciones() {
-        return observaciones;
-    }
-
-    public void setObservaciones(Set<Observacion> observaciones) {
-        this.observaciones = observaciones;
-    }
-
-    public Ranking getRanking() {
-        return ranking;
-    }
-
-    public void setRanking(Ranking ranking) {
-        this.ranking = ranking;
-    }
-
-    public Set<TelefonoPersona> getTelefonos() {
-        return telefonos;
-    }
-
-    public void setTelefonos(Set<TelefonoPersona> telefonos) {
-        this.telefonos = telefonos;
-    }
-
-    public TipoContribuyente getTipoContribuyente() {
-        return tipoContribuyente;
-    }
-
-    public void setTipoContribuyente(TipoContribuyente tipoContribuyente) {
-        this.tipoContribuyente = tipoContribuyente;
-    }
-
-    public Set<TipoPersona> getTiposPersona() {
-        return tiposPersona;
-    }
-
-    public void setTiposPersona(Set<TipoPersona> tiposPersona) {
-        this.tiposPersona = tiposPersona;
-    }
-
-    public Boolean getGobierno() {
-        return gobierno;
-    }
-
-    public void setGobierno(Boolean gobierno) {
-        this.gobierno = gobierno;
-    }
-
-    public Set<Sucursal> getSucursales() {
-        return sucursales;
-    }
-
-    public void setSucursales(Set<Sucursal> sucursales) {
-        this.sucursales = sucursales;
-    }
-
+    /**
+     *
+     * @return the auditoria
+     */
     public AuditoriaBasica getAuditoria() {
         return auditoria;
     }
 
-    public void setAuditoria(AuditoriaBasica auditoria) {
-        this.auditoria = auditoria;
+    /**
+     * Capacidad Economica de la persona
+     * @return the capacidadEconomica
+     */
+    public TipoCapacidadEconomica getCapacidadEconomica() {
+        return capacidadEconomica;
     }
 
+    /**
+     * Codigo en Archivo
+     * donde conseguir el archivo fisico
+     * @return the codigoArchivo
+     */
     public String getCodigoArchivo() {
         return codigoArchivo;
     }
 
-    public void setCodigoArchivo(String codigoArchivo) {
-        this.codigoArchivo = codigoArchivo;
+    /**
+     * Codigo ??
+     * @return the codigoX
+     */
+    public String getCodigoX() {
+        return codigoX;
     }
 
-    public Rif getRif() {
-        return rif;
+    /**
+     * Coleccion de cuentas bancarias de la persona
+     * @return the cuentasBancarias
+     */
+    public Set<CuentaBancariaPersona> getCuentasBancarias() {
+        return cuentasBancarias;
     }
 
-    public void setRif(Rif rif) {
-        this.rif = rif;
+    /**
+     * Coleccion de direcciones de la persona
+     * @return the direcciones
+     */
+    public Set<DireccionPersona> getDirecciones() {
+        return direcciones;
     }
 
-    public Integer getOptLock() {
-        return optLock;
+    /**
+     * Coleccion de documentos anexos de la persona
+     * @return the documentos
+     */
+    public Set<Documento> getDocumentos() {
+        return documentos;
     }
 
-    public void setOptLock(Integer optLock) {
-        this.optLock = optLock;
-    }
-
+    /**
+     * Email de la persona
+     * @return the email
+     */
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    /**
+     * Fecha del ultimo balance de la persona
+     * @return the fechaUltimoBalance
+     */
+    public Date getFechaUltimoBalance() {
+        return fechaUltimoBalance;
     }
 
+    /**
+     * Es un ente gubernamental?
+     * @return the gobierno
+     */
+    public Boolean getGobierno() {
+        return gobierno;
+    }
+
+    /**
+     * Pk autogenerado
+     * @return the id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * Nombre Corto de la persona
+     * @return the nombreCorto
+     */
+    public String getNombreCorto() {
+        return nombreCorto;
+    }
+
+    /**
+     * Nombre completo de la persona
+     * Autogenerado si es persona natural
+     * @return the nombreLargo
+     */
+    public String getNombreLargo() {
+        return nombreLargo;
+    }
+
+    /**
+     * Coleccion de observaciones de la persona
+     * @return the observaciones
+     */
+    public Set<Observacion> getObservaciones() {
+        return observaciones;
+    }
+
+    /**
+     *
+     * @return the optLock
+     */
+    public Integer getOptLock() {
+        return optLock;
+    }
+
+    /**
+     * Rankin de persona
+     * @return the ranking
+     */
+    public Ranking getRanking() {
+        return ranking;
+    }
+
+    /**
+     * Datos de la identificacion de la persona
+     * @return the rif
+     */
+    public Rif getRif() {
+        return rif;
+    }
+
+    /**
+     * Coleccion de sucursales de de la persona juridica
+     * @return the sucursales
+     */
+    public Set<Sucursal> getSucursales() {
+        return sucursales;
+    }
+
+    /**
+     * Coleccion de telefonos de la persona
+     * @return the telefonos
+     */
+    public Set<TelefonoPersona> getTelefonos() {
+        return telefonos;
+    }
+
+    /**
+     * Tipo de contribullente
+     * <p>
+     * Ejemplo: Contribuyente: formal, ordinario
+     * @return the tipoContribuyente
+     */
+    public TipoContribuyente getTipoContribuyente() {
+        return tipoContribuyente;
+    }
+
+    /**
+     * Coleccion, tipo de persona
+     * @return the tiposPersona
+     */
+    public Set<TipoPersona> getTiposPersona() {
+        return tiposPersona;
+    }
+
+    /**
+     * Web de la persona
+     * @return the web
+     */
     public String getWeb() {
         return web;
     }
 
+    /**
+     * Actividad Economica de la persona
+     * @param actividadEconomica the actividadEconomica to set
+     */
+    public void setActividadEconomica(TipoActividadEconomica actividadEconomica) {
+        this.actividadEconomica = actividadEconomica;
+    }
+
+    /**
+     *
+     * @param alias2 the alias2 to set
+     */
+    public void setAlias2(String alias2) {
+        this.alias2 = alias2;
+    }
+
+    /**
+     *
+     * @param auditoria the auditoria to set
+     */
+    public void setAuditoria(AuditoriaBasica auditoria) {
+        this.auditoria = auditoria;
+    }
+
+    /**
+     * Capacidad Economica de la persona
+     * @param capacidadEconomica the capacidadEconomica to set
+     */
+    public void setCapacidadEconomica(TipoCapacidadEconomica capacidadEconomica) {
+        this.capacidadEconomica = capacidadEconomica;
+    }
+
+    /**
+     * Codigo en Archivo
+     * donde conseguir el archivo fisico
+     * @param codigoArchivo the codigoArchivo to set
+     */
+    public void setCodigoArchivo(String codigoArchivo) {
+        this.codigoArchivo = codigoArchivo;
+    }
+
+    /**
+     * Codigo ??
+     * @param codigoX the codigoX to set
+     */
+    public void setCodigoX(String codigoX) {
+        this.codigoX = codigoX;
+    }
+
+    /**
+     * Coleccion de cuentas bancarias de la persona
+     * @param cuentasBancarias the cuentasBancarias to set
+     */
+    public void setCuentasBancarias(Set<CuentaBancariaPersona> cuentasBancarias) {
+        this.cuentasBancarias = cuentasBancarias;
+    }
+
+    /**
+     * Coleccion de direcciones de la persona
+     * @param direcciones the direcciones to set
+     */
+    public void setDirecciones(Set<DireccionPersona> direcciones) {
+        this.direcciones = direcciones;
+    }
+
+    /**
+     * Coleccion de documentos anexos de la persona
+     * @param documentos the documentos to set
+     */
+    public void setDocumentos(Set<Documento> documentos) {
+        this.documentos = documentos;
+    }
+
+    /**
+     * Email de la persona
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * Fecha del ultimo balance de la persona
+     * @param fechaUltimoBalance the fechaUltimoBalance to set
+     */
+    public void setFechaUltimoBalance(Date fechaUltimoBalance) {
+        this.fechaUltimoBalance = fechaUltimoBalance;
+    }
+
+    /**
+     * Es un ente gubernamental?
+     * @param gobierno the gobierno to set
+     */
+    public void setGobierno(Boolean gobierno) {
+        this.gobierno = gobierno;
+    }
+
+    /**
+     * Pk autogenerado
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
+     * Nombre Corto de la persona
+     * @param nombreCorto the nombreCorto to set
+     */
+    public void setNombreCorto(String nombreCorto) {
+        this.nombreCorto = nombreCorto;
+    }
+
+    /**
+     * Nombre completo de la persona
+     * Autogenerado si es persona natural
+     * @param nombreLargo the nombreLargo to set
+     */
+    public void setNombreLargo(String nombreLargo) {
+        this.nombreLargo = nombreLargo;
+    }
+
+    /**
+     * Coleccion de observaciones de la persona
+     * @param observaciones the observaciones to set
+     */
+    public void setObservaciones(Set<Observacion> observaciones) {
+        this.observaciones = observaciones;
+    }
+
+    /**
+     *
+     * @param optLock the optLock to set
+     */
+    public void setOptLock(Integer optLock) {
+        this.optLock = optLock;
+    }
+
+    /**
+     * Rankin de persona
+     * @param ranking the ranking to set
+     */
+    public void setRanking(Ranking ranking) {
+        this.ranking = ranking;
+    }
+
+    /**
+     * Datos de la identificacion de la persona
+     * @param rif the rif to set
+     */
+    public void setRif(Rif rif) {
+        this.rif = rif;
+    }
+
+    /**
+     * Coleccion de sucursales de de la persona juridica
+     * @param sucursales the sucursales to set
+     */
+    public void setSucursales(Set<Sucursal> sucursales) {
+        this.sucursales = sucursales;
+    }
+
+    /**
+     * Coleccion de telefonos de la persona
+     * @param telefonos the telefonos to set
+     */
+    public void setTelefonos(Set<TelefonoPersona> telefonos) {
+        this.telefonos = telefonos;
+    }
+
+    /**
+     * Tipo de contribullente
+     * <p>
+     * Ejemplo: Contribuyente: formal, ordinario
+     * @param tipoContribuyente the tipoContribuyente to set
+     */
+    public void setTipoContribuyente(TipoContribuyente tipoContribuyente) {
+        this.tipoContribuyente = tipoContribuyente;
+    }
+
+    /**
+     * Coleccion, tipo de persona
+     * @param tiposPersona the tiposPersona to set
+     */
+    public void setTiposPersona(Set<TipoPersona> tiposPersona) {
+        this.tiposPersona = tiposPersona;
+    }
+
+    /**
+     * Web de la persona
+     * @param web the web to set
+     */
     public void setWeb(String web) {
         this.web = web;
     }
@@ -432,21 +673,5 @@ public class Persona extends BeanVO implements Serializable, Auditable {
                 + "fechaUltimoBalance=" + fechaUltimoBalance + ", "
                 + "capacidadEconomica=" + capacidadEconomica.getId() + ", "
                 + "actividadEconomica=" + actividadEconomica.getId() + "]";
-    }
-
-    public String getCodigoX() {
-        return codigoX;
-    }
-
-    public void setCodigoX(String codigoX) {
-        this.codigoX = codigoX;
-    }
-
-    public String getAlias2() {
-        return alias2;
-    }
-
-    public void setAlias2(String alias2) {
-        this.alias2 = alias2;
     }
 }
