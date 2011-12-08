@@ -39,7 +39,7 @@ public class Splash extends javax.swing.JFrame {
         appNameLine2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("jSipol Express Edition");
+        setTitle("Fondo Autoadministrado de Salud");
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
         setUndecorated(true);
@@ -48,7 +48,7 @@ public class Splash extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
 
-        appNameLine3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        appNameLine3.setFont(new java.awt.Font("Tahoma", 0, 14));
         appNameLine3.setForeground(new java.awt.Color(51, 51, 51));
         appNameLine3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         appNameLine3.setText(General.edition);
@@ -57,7 +57,7 @@ public class Splash extends javax.swing.JFrame {
         jPanel1.add(jProgressBar1);
         jProgressBar1.setBounds(20, 140, 440, 10);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("Estado");
         jPanel1.add(jLabel2);
@@ -65,25 +65,25 @@ public class Splash extends javax.swing.JFrame {
         jPanel1.add(jSeparator1);
         jSeparator1.setBounds(10, 160, 460, 10);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 9));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText(General.copyRight);
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(0, 170, 480, 12);
+        jLabel5.setBounds(0, 170, 480, 11);
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 9));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText(General.contacto);
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(0, 185, 480, 12);
+        jLabel7.setBounds(0, 185, 480, 11);
 
-        fechaActualizacion.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        fechaActualizacion.setFont(new java.awt.Font("Tahoma", 0, 9));
         fechaActualizacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fechaActualizacion.setText(General.version);
         jPanel1.add(fechaActualizacion);
-        fechaActualizacion.setBounds(0, 200, 480, 12);
+        fechaActualizacion.setBounds(0, 200, 480, 11);
 
-        appNameLine1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        appNameLine1.setFont(new java.awt.Font("Tahoma", 1, 14));
         appNameLine1.setForeground(new java.awt.Color(51, 51, 51));
         appNameLine1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         appNameLine1.setText(General.splashLine2);
@@ -95,7 +95,7 @@ public class Splash extends javax.swing.JFrame {
         jPanel1.add(jLabel3);
         jLabel3.setBounds(0, 0, 90, 110);
 
-        appNameLine2.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        appNameLine2.setFont(new java.awt.Font("Tahoma", 1, 22));
         appNameLine2.setForeground(new java.awt.Color(51, 51, 51));
         appNameLine2.setText("Sistema Integrado de");
         jPanel1.add(appNameLine2);

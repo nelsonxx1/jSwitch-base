@@ -30,14 +30,12 @@ public class CodigoAreaGridFrame extends DefaultGridFrame {
         gridData = new org.openswing.swing.client.GridControl();
         integerColumn1 = new org.openswing.swing.table.columns.client.IntegerColumn();
         textColumn1 = new org.openswing.swing.table.columns.client.TextColumn();
-        integerColumn2 = new org.openswing.swing.table.columns.client.IntegerColumn();
+        textColumn4 = new org.openswing.swing.table.columns.client.TextColumn();
         checkBoxColumn1 = new org.openswing.swing.table.columns.client.CheckBoxColumn();
         dateTimeColumn1 = new org.openswing.swing.table.columns.client.DateTimeColumn();
         textColumn2 = new org.openswing.swing.table.columns.client.TextColumn();
         dateTimeColumn2 = new org.openswing.swing.table.columns.client.DateTimeColumn();
         textColumn3 = new org.openswing.swing.table.columns.client.TextColumn();
-
-        setTitle("Codigos de Area");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -93,13 +91,11 @@ public class CodigoAreaGridFrame extends DefaultGridFrame {
         textColumn1.setPreferredWidth(170);
         gridData.getColumnContainer().add(textColumn1);
 
-        integerColumn2.setColumnName("numero");
-        integerColumn2.setEditableOnEdit(true);
-        integerColumn2.setEditableOnInsert(true);
-        integerColumn2.setMaxValue(999);
-        integerColumn2.setMinValue(99);
-        integerColumn2.setPreferredWidth(60);
-        gridData.getColumnContainer().add(integerColumn2);
+        textColumn4.setColumnName("numero");
+        textColumn4.setEditableOnEdit(true);
+        textColumn4.setEditableOnInsert(true);
+        textColumn4.setPreferredWidth(70);
+        gridData.getColumnContainer().add(textColumn4);
 
         checkBoxColumn1.setColumnName("auditoria.activo");
         checkBoxColumn1.setEditableOnEdit(true);
@@ -137,7 +133,7 @@ public class CodigoAreaGridFrame extends DefaultGridFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(gridData, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
+                .addComponent(gridData, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -146,7 +142,7 @@ public class CodigoAreaGridFrame extends DefaultGridFrame {
     public void inicializar(GridDataLocator gridDataLocator,
             GridController gridController, String valueObjectClassName, String titulo, boolean addToMDIFrame) {
         initComponents();
-        //this.setTitle(titulo);
+        this.setTitle(titulo);
         gridData.setValueObjectClassName(valueObjectClassName);
         gridData.setGridDataLocator(gridDataLocator);
         gridData.setController(gridController);
@@ -185,12 +181,12 @@ public class CodigoAreaGridFrame extends DefaultGridFrame {
     private org.openswing.swing.client.GridControl gridData;
     private org.openswing.swing.client.InsertButton insertButton1;
     private org.openswing.swing.table.columns.client.IntegerColumn integerColumn1;
-    private org.openswing.swing.table.columns.client.IntegerColumn integerColumn2;
     private javax.swing.JPanel jPanel1;
     private org.openswing.swing.client.ReloadButton reloadButton1;
     private org.openswing.swing.client.SaveButton saveButton1;
     private org.openswing.swing.table.columns.client.TextColumn textColumn1;
     private org.openswing.swing.table.columns.client.TextColumn textColumn2;
     private org.openswing.swing.table.columns.client.TextColumn textColumn3;
+    private org.openswing.swing.table.columns.client.TextColumn textColumn4;
     // End of variables declaration//GEN-END:variables
 }

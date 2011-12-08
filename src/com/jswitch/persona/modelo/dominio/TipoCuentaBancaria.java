@@ -44,6 +44,14 @@ public class TipoCuentaBancaria extends BeanVO implements Serializable, Auditabl
     @BusinessKey
     private String nombre;
     /**
+     * Codigo del tipo de Cuenta para pagos
+     */
+    @Column
+    @Size(min = 2, max = 2)
+    @BusinessKey
+    private String numero;
+        
+    /**
      */
     @Version
     @Column
@@ -93,4 +101,14 @@ public class TipoCuentaBancaria extends BeanVO implements Serializable, Auditabl
     public void setOptLock(Integer optLock) {
         this.optLock = optLock;
     }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    
 }
