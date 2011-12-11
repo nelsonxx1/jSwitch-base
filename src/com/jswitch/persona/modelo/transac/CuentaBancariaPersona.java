@@ -18,8 +18,8 @@ import com.jswitch.base.modelo.entidades.auditoria.Auditable;
 import com.jswitch.base.modelo.util.bean.BeanVO;
 import com.jswitch.base.modelo.util.ehts.BusinessKey;
 import com.jswitch.base.modelo.util.ehts.Method;
-import javax.validation.constraints.Size;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 /**
  * Clase Asociativa entre la persona, el banco
@@ -48,7 +48,7 @@ public class CuentaBancariaPersona extends BeanVO implements Serializable, Audit
      * Numero de cuenta
      */
     @Column
-    @Size(min = 20, max = 20)
+    @Pattern(regexp="\\d{20}",message="Solo se permiten 20 numeros")
     @BusinessKey
     private String numero;
     /**
@@ -86,7 +86,7 @@ public class CuentaBancariaPersona extends BeanVO implements Serializable, Audit
      * Auditoria Basica de los Registros
      */
     @Embedded
-    @BusinessKey
+    //@BusinessKey
     private AuditoriaBasica auditoria;
     private transient Persona persona;
 
