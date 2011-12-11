@@ -1864,6 +1864,16 @@
                             <Property name="editableOnInsert" type="boolean" value="true"/>
                           </Properties>
                         </Component>
+                        <Component class="org.openswing.swing.table.columns.client.IntegerColumn" name="integerColumn2">
+                          <Properties>
+                            <Property name="columnName" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                              <Connection code="&quot;numero&quot;" type="code"/>
+                            </Property>
+                            <Property name="columnRequired" type="boolean" value="false"/>
+                            <Property name="editableOnEdit" type="boolean" value="true"/>
+                            <Property name="editableOnInsert" type="boolean" value="true"/>
+                          </Properties>
+                        </Component>
                         <Component class="org.openswing.swing.table.columns.client.TextColumn" name="textColumn4">
                           <Properties>
                             <Property name="columnName" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -1873,6 +1883,7 @@
                             <Property name="editableOnInsert" type="boolean" value="true"/>
                             <Property name="maxCharacters" type="int" value="20"/>
                             <Property name="preferredWidth" type="int" value="170"/>
+                            <Property name="trimText" type="boolean" value="true"/>
                           </Properties>
                         </Component>
                         <Component class="org.openswing.swing.table.columns.client.CheckBoxColumn" name="checkBoxColumn2">

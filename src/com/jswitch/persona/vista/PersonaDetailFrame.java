@@ -204,6 +204,7 @@ public class PersonaDetailFrame extends DefaultDetailFrame {
         decimalColumn1 = new org.openswing.swing.table.columns.client.DecimalColumn();
         codLookupColumn1 = new org.openswing.swing.table.columns.client.CodLookupColumn();
         codLookupColumn3 = new org.openswing.swing.table.columns.client.CodLookupColumn();
+        integerColumn2 = new org.openswing.swing.table.columns.client.IntegerColumn();
         textColumn4 = new org.openswing.swing.table.columns.client.TextColumn();
         checkBoxColumn2 = new org.openswing.swing.table.columns.client.CheckBoxColumn();
         textColumn5 = new org.openswing.swing.table.columns.client.TextColumn();
@@ -1365,11 +1366,18 @@ public class PersonaDetailFrame extends DefaultDetailFrame {
         codLookupColumn3.setEditableOnInsert(true);
         gridControl1.getColumnContainer().add(codLookupColumn3);
 
+        integerColumn2.setColumnName("numero");
+        integerColumn2.setColumnRequired(false);
+        integerColumn2.setEditableOnEdit(true);
+        integerColumn2.setEditableOnInsert(true);
+        gridControl1.getColumnContainer().add(integerColumn2);
+
         textColumn4.setColumnName("numero");
         textColumn4.setEditableOnEdit(true);
         textColumn4.setEditableOnInsert(true);
         textColumn4.setMaxCharacters(20);
         textColumn4.setPreferredWidth(170);
+        textColumn4.setTrimText(true);
         gridControl1.getColumnContainer().add(textColumn4);
 
         checkBoxColumn2.setColumnName("domicilio");
@@ -2498,6 +2506,7 @@ public class PersonaDetailFrame extends DefaultDetailFrame {
     private org.openswing.swing.client.InsertButton insertButton7;
     private org.openswing.swing.client.InsertButton insertButton9;
     private org.openswing.swing.table.columns.client.IntegerColumn integerColumn1;
+    private org.openswing.swing.table.columns.client.IntegerColumn integerColumn2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
