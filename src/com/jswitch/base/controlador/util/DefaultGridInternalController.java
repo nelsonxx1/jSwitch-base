@@ -116,7 +116,9 @@ public class DefaultGridInternalController extends GridController implements Gri
 
     @Override
     public Response insertRecords(int[] rowNumbers, ArrayList newValueObjects) throws Exception {
+        //ArrayList n2=new ArrayList();
         Session s = null;
+        Transaction t = null;
         if (getSet() != null) {
             for (Object object : newValueObjects) {
                 ValueObject o = (ValueObject) object;
@@ -124,11 +126,15 @@ public class DefaultGridInternalController extends GridController implements Gri
                 if (o instanceof Auditable) {
                     ((Auditable) o).setAuditoria(ab);
                 }
-                getSet().add(o);
+                Object aux=o.clone();
+                //n2.add(aux);
+                newValueObjects.remove(o);
+                newValueObjects.add(aux);
+                getSet().add(aux);
             }
             try {
                 s = HibernateUtil.getSessionFactory().openSession();
-                Transaction t = s.beginTransaction();
+                t = s.beginTransaction();
                 s.update(beanVO);
                 selectedCell(0, 0, null, (ValueObject) newValueObjects.get(0));
                 t.commit();

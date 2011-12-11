@@ -6,6 +6,7 @@ import com.jswitch.base.modelo.util.bean.BeanVO;
 import com.jswitch.base.modelo.util.ehts.BusinessKey;
 import com.jswitch.base.modelo.util.ehts.Method;
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -13,6 +14,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
 /**
@@ -32,15 +35,36 @@ public class ConfiguracionesGenerales extends BeanVO implements Serializable, Au
     @BusinessKey(include = Method.TO_STRING)
     private Long id;
     /**
-     * Porcentaje de iva actual
+     * 
      */
     @Column
-    private Double porcentajeIVA;
+    private String nombre;
     /**
-     * Valor de la Unidad Tributaria actual
+     * 
      */
     @Column
-    private Double valorUT;
+    private String valorString;
+    /**
+     * 
+     */
+    @Column
+    private Double valorDouble;
+    /**
+     * 
+     */
+    @Column
+    private Integer valorInteger;
+    /**
+     * 
+     */
+    @Column
+    private Boolean valorBoolean;
+    /**
+     * 
+     */
+    @Column
+    @Temporal(TemporalType.DATE)
+    private Date valorDate;
     /**
      * Version de la clase
      */
@@ -55,6 +79,35 @@ public class ConfiguracionesGenerales extends BeanVO implements Serializable, Au
     private AuditoriaBasica auditoria;
 
     public ConfiguracionesGenerales() {
+    }
+
+    public ConfiguracionesGenerales(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public ConfiguracionesGenerales(String nombre, String valorString) {
+        this.nombre = nombre;
+        this.valorString = valorString;
+    }
+
+    public ConfiguracionesGenerales(String nombre, Double valorDouble) {
+        this.nombre = nombre;
+        this.valorDouble = valorDouble;
+    }
+
+    public ConfiguracionesGenerales(String nombre, Integer valorInteger) {
+        this.nombre = nombre;
+        this.valorInteger = valorInteger;
+    }
+
+    public ConfiguracionesGenerales(String nombre, Boolean valorBoolean) {
+        this.nombre = nombre;
+        this.valorBoolean = valorBoolean;
+    }
+
+    public ConfiguracionesGenerales(String nombre, Date valorDate) {
+        this.nombre = nombre;
+        this.valorDate = valorDate;
     }
 
     /**
@@ -82,14 +135,6 @@ public class ConfiguracionesGenerales extends BeanVO implements Serializable, Au
     }
 
     /**
-     * Porcentaje de iva actual
-     * @return the porcentajeIVA
-     */
-    public Double getPorcentajeIVA() {
-        return porcentajeIVA;
-    }
-
-    /**
      * Auditoria de la clase
      * @param auditoria the auditoria to set
      */
@@ -113,33 +158,51 @@ public class ConfiguracionesGenerales extends BeanVO implements Serializable, Au
         this.optLock = optLock;
     }
 
-    /**
-     * Porcentaje de iva actual
-     * @param porcentajeIVA the porcentajeIVA to set
-     */
-    public void setPorcentajeIVA(Double porcentajeIVA) {
-        if (porcentajeIVA > 1) {
-            this.porcentajeIVA = 1d;
-        } else if (porcentajeIVA < 0) {
-            this.porcentajeIVA = 0d;
-        } else {
-            this.porcentajeIVA = porcentajeIVA;
-        }
+    public String getNombre() {
+        return nombre;
     }
 
-    /**
-     * Valor de la Unidad Tributaria actual
-     * @return the valorUT
-     */
-    public Double getValorUT() {
-        return valorUT;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    /**
-     * Valor de la Unidad Tributaria actual
-     * @param valorUT the valorUT to set
-     */
-    public void setValorUT(Double valorUT) {
-        this.valorUT = valorUT;
+    public Boolean getValorBoolean() {
+        return valorBoolean;
+    }
+
+    public void setValorBoolean(Boolean valorBoolean) {
+        this.valorBoolean = valorBoolean;
+    }
+
+    public Date getValorDate() {
+        return valorDate;
+    }
+
+    public void setValorDate(Date valorDate) {
+        this.valorDate = valorDate;
+    }
+
+    public Double getValorDouble() {
+        return valorDouble;
+    }
+
+    public void setValorDouble(Double valorDouble) {
+        this.valorDouble = valorDouble;
+    }
+
+    public Integer getValorInteger() {
+        return valorInteger;
+    }
+
+    public void setValorInteger(Integer valorInteger) {
+        this.valorInteger = valorInteger;
+    }
+
+    public String getValorString() {
+        return valorString;
+    }
+
+    public void setValorString(String valorString) {
+        this.valorString = valorString;
     }
 }

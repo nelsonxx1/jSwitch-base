@@ -11,6 +11,7 @@ import com.jswitch.base.modelo.entidades.defaultData.ConfiguracionesGenerales;
 import com.jswitch.base.modelo.entidades.defaultData.DefaultPersona;
 import com.jswitch.rol.modelo.MenuByRol;
 import java.util.HashMap;
+import java.util.List;
 
 
 /**
@@ -31,7 +32,7 @@ public class General {
     public static String contacto = "";
     public static String splashLine2 = "";
     public static DefaultPersona defaultPersona;
-    public static ConfiguracionesGenerales configuracionesGenerales;
-    public static HashMap<String,MenuByRol> permisologiaModulo=new HashMap<String,MenuByRol>(0);
+    public static HashMap<String,ConfiguracionesGenerales> parametros=new HashMap<String,ConfiguracionesGenerales>();
+    public static HashMap<String,MenuByRol> permisologiaModulo=new HashMap<String,MenuByRol>();
     
 }
