@@ -30,6 +30,7 @@ import javax.validation.constraints.Pattern;
  * @see TipoCuentaBancaria
  * @author Orlando Becerra
  * @author Nelson Moncada
+ * @author Luis Gonzalez
  */
 @Entity
 @Table(name = "PERS_CuentaBancariaPersona", uniqueConstraints = {
@@ -48,7 +49,7 @@ public class CuentaBancariaPersona extends BeanVO implements Serializable, Audit
      * Numero de cuenta
      */
     @Column
-    @Pattern(regexp="\\d{20}",message="Solo se permiten 20 numeros")
+    @Pattern(regexp = "\\d{20}", message = "Solo se permiten 20 numeros")
     @BusinessKey
     private String numero;
     /**
@@ -72,26 +73,30 @@ public class CuentaBancariaPersona extends BeanVO implements Serializable, Audit
     @BusinessKey(include = Method.TO_STRING)
     private TipoCuentaBancaria tipoCuenta;
     /**
-     * 
+     * se domicilan los pagos aqui?
      */
     @Column
     @BusinessKey
     private Boolean domicilio;
     /**
+     * version
      */
     @Version
     @Column
     private Integer optLock;
     /**
      * Auditoria Basica de los Registros
+     * Bitacora
      */
     @Embedded
-    //@BusinessKey
     private AuditoriaBasica auditoria;
-    private transient Persona persona;
+//    /**
+//     * Persona a la que pertenece
+//     */
+//    private transient Persona persona;
 
     public CuentaBancariaPersona() {
-        this.domicilio= Boolean.FALSE;
+        this.domicilio = Boolean.FALSE;
     }
 
     public CuentaBancariaPersona(String numero, String observacion, Persona banco, TipoCuentaBancaria tipoCuenta, AuditoriaBasica auditoria) {
@@ -100,78 +105,137 @@ public class CuentaBancariaPersona extends BeanVO implements Serializable, Audit
         this.banco = banco;
         this.tipoCuenta = tipoCuenta;
         this.auditoria = auditoria;
-        this.domicilio= Boolean.FALSE;
+        this.domicilio = Boolean.FALSE;
     }
 
-    public Persona getBanco() {
-        return banco;
-    }
-
-    public void setBanco(Persona banco) {
-        this.banco = banco;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getObservacion() {
-        return observacion;
-    }
-
-    public void setObservacion(String observacion) {
-        this.observacion = observacion;
-    }
-
-    public Integer getOptLock() {
-        return optLock;
-    }
-
-    public void setOptLock(Integer optLock) {
-        this.optLock = optLock;
-    }
-
-    public TipoCuentaBancaria getTipoCuenta() {
-        return tipoCuenta;
-    }
-
-    public void setTipoCuenta(TipoCuentaBancaria tipoCuenta) {
-        this.tipoCuenta = tipoCuenta;
-    }
-
+    /**
+     * Auditoria Basica de los Registros
+     * Bitacora
+     * @return the auditoria
+     */
     public AuditoriaBasica getAuditoria() {
         return auditoria;
     }
 
-    public void setAuditoria(AuditoriaBasica auditoria) {
-        this.auditoria = auditoria;
+    /**
+     * Banco que posee la cuenta
+     * @return the banco
+     */
+    public Persona getBanco() {
+        return banco;
     }
 
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
-    public Persona getPersona() {
-        return persona;
-    }
-
-    public void setPersona(Persona persona) {
-        this.persona = persona;
-    }
-
+    /**
+     * se domicilan los pagos aqui?
+     * @return the domicilio
+     */
     public Boolean getDomicilio() {
         return domicilio;
     }
 
+    /**
+     * Pk autoincrementado
+     * @return the id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * Numero de cuenta
+     * @return the numero
+     */
+    public String getNumero() {
+        return numero;
+    }
+
+    /**
+     * Observacion del numero de cuenta
+     * @return the observacion
+     */
+    public String getObservacion() {
+        return observacion;
+    }
+
+    /**
+     * version
+     * @return the optLock
+     */
+    public Integer getOptLock() {
+        return optLock;
+    }
+
+    /**
+     * Tipo de cuenta que posee
+     * @return the tipoCuenta
+     */
+    public TipoCuentaBancaria getTipoCuenta() {
+        return tipoCuenta;
+    }
+
+    /**
+     * Auditoria Basica de los Registros
+     * Bitacora
+     * @param auditoria the auditoria to set
+     */
+    public void setAuditoria(AuditoriaBasica auditoria) {
+        this.auditoria = auditoria;
+    }
+
+    /**
+     * Banco que posee la cuenta
+     * @param banco the banco to set
+     */
+    public void setBanco(Persona banco) {
+        this.banco = banco;
+    }
+
+    /**
+     * se domicilan los pagos aqui?
+     * @param domicilio the domicilio to set
+     */
     public void setDomicilio(Boolean domicilio) {
         this.domicilio = domicilio;
     }
+
+    /**
+     * Pk autoincrementado
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
+     * Numero de cuenta
+     * @param numero the numero to set
+     */
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    /**
+     * Observacion del numero de cuenta
+     * @param observacion the observacion to set
+     */
+    public void setObservacion(String observacion) {
+        this.observacion = observacion;
+    }
+
+    /**
+     * version
+     * @param optLock the optLock to set
+     */
+    public void setOptLock(Integer optLock) {
+        this.optLock = optLock;
+    }
+
+    /**
+     * Tipo de cuenta que posee
+     * @param tipoCuenta the tipoCuenta to set
+     */
+    public void setTipoCuenta(TipoCuentaBancaria tipoCuenta) {
+        this.tipoCuenta = tipoCuenta;
+    }
+
 }

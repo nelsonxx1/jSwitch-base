@@ -82,10 +82,6 @@ public class CuentaBancariaLookupControllerTree extends DefaultLookupController 
                             s = HibernateUtil.getSessionFactory().openSession();
                             Persona per = (Persona) s.load(Persona.class, marca.getId());
                             List list = new ArrayList(per.getCuentasBancarias());
-                            for (Object object : list) {
-                                ((CuentaBancariaPersona) object).setPersona(per);
-                                System.out.println("tome per "+per.getNombreCorto());
-                            }
                             return new VOListResponse(list, false, list.size());
                         } catch (Exception ex) {
                             LoggerUtil.error(this.getClass(), "loadData", ex);
