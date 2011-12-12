@@ -2129,7 +2129,7 @@ public class PersonaDetailFrame extends DefaultDetailFrame {
 
     @Override
     public void inicializar(FormController formController, boolean addToMDIFrame) {
-        System.out.println("init");
+//        System.out.println("init");
         initComponents();
         //reloadButton1.setVisible(false);
         jToggleButton1.setVisible(false);
