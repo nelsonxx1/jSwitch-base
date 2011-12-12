@@ -52,7 +52,7 @@ public class AtributeLogGridFrameController extends GridController implements Gr
     @Override
     public void doubleClick(int rowNumber, ValueObject persistentObject) {
         AtributoValor valor = (AtributoValor) persistentObject;
-        System.out.println(valor.getValor().getClass());
+//        System.out.println(valor.getValor().getClass());
         if (valor.getValor() instanceof BeanVO) {
             ArrayList<AtributoValor> atributoValors = new ArrayList<AtributoValor>(0);
             funX(valor.getValor(), atributoValors);
