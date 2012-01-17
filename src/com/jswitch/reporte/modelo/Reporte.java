@@ -1,18 +1,18 @@
 package com.jswitch.reporte.modelo;
 
+import com.jswitch.base.modelo.Dominios.CategoriaReporte;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Version;
-import com.jswitch.base.modelo.Dominios.CategoriaReporte;
 import com.jswitch.base.modelo.util.bean.BeanVO;
 import com.jswitch.base.modelo.util.ehts.BusinessKey;
 import com.jswitch.base.modelo.util.ehts.Method;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -21,7 +21,7 @@ import javax.validation.constraints.Size;
  * @author bc
  */
 @Entity
-@Table(name="SYST_Reporte")
+@Table(name = "SYST_Reporte")
 public class Reporte extends BeanVO implements Serializable {
 
     /**
@@ -75,6 +75,11 @@ public class Reporte extends BeanVO implements Serializable {
     /**
      */
     @Column
+    @BusinessKey(exclude = Method.EQUALS)
+    private Boolean filtroObligado;
+    /**
+     */
+    @Column
     @Size(min = 0, max = 3000)
     @BusinessKey(exclude = Method.EQUALS)
     private String baseSQL;
@@ -82,18 +87,19 @@ public class Reporte extends BeanVO implements Serializable {
     public Reporte() {
     }
 
-    public Reporte(CategoriaReporte categoria, int tipo, String file, String titulo, String observacion, String baseSQL) {
-        this(categoria, tipo, file, titulo, observacion, baseSQL, "Carta");
+    public Reporte(CategoriaReporte categoria, int tipo, String file, String titulo, String observacion, String baseSQL, Boolean filtroObligado) {
+        this(categoria, tipo, file, titulo, observacion, baseSQL, "Carta",filtroObligado);
     }
 
-    public Reporte(CategoriaReporte categoria, int tipo, String file, String titulo, String observacion, String baseSQL, String tipoPapel) {
+    public Reporte(CategoriaReporte categoria, int tipo, String file, String titulo, String observacion, String baseSQL, String tipoPapel, Boolean filtroObligado) {
         this.categoria = categoria;
         this.tipo = tipo;
         this.file = file;
         this.titulo = titulo;
         this.observacion = observacion;
         this.baseSQL = baseSQL;
-        this.tipoPapel = tipoPapel;
+        this.filtroObligado = filtroObligado;
+        this.tipoPapel = tipoPapel;        
     }
 
     public Long getId() {
@@ -166,5 +172,13 @@ public class Reporte extends BeanVO implements Serializable {
 
     public void setTipoPapel(String tipoPapel) {
         this.tipoPapel = tipoPapel;
+    }
+
+    public Boolean getFiltroObligado() {
+        return filtroObligado;
+    }
+
+    public void setFiltroObligado(Boolean filtroObligado) {
+        this.filtroObligado = filtroObligado;
     }
 }

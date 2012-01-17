@@ -88,7 +88,7 @@ public class ReportesGridController extends DefaultGridFrameController {
         final JDialog d = new EsperaDialog(null, false);
         //filtro.showReport(r, frame.isFiltroActivo(),frame.getMensaje());
 
-        if (frame.isFiltroSencilloActivo()) {
+        if (frame.isFiltroSencilloActivo() || reporte.getFiltroObligado()) {
             new Filtros().mostrarFiltro(reporte, true);
         } else {
             ClientUtils.centerDialog(MDIFrame.getInstance(), d);
