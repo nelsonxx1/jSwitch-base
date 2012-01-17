@@ -1,7 +1,4 @@
-
-
 package com.jswitch.reporte.controlador;
-
 
 import com.jswitch.base.controlador.General;
 import com.jswitch.base.controlador.util.DefaultGridFrameController;
@@ -31,7 +28,6 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
 import org.hibernate.type.Type;
@@ -46,6 +42,8 @@ import org.openswing.swing.util.java.Consts;
 import com.jswitch.persona.vista.Personas2GridFrame;
 import com.jswitch.base.vista.util.DefaultGridFrame;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
+import net.sf.jasperreports.view.JasperViewer;
 import org.openswing.swing.util.server.HibernateUtils;
 
 
@@ -66,26 +64,23 @@ public class ReporteController extends DefaultGridFrameController implements Act
 
     public void mostrarReporte(List dataSource, ArrayList<ParametroReporte> parametrosFiltro,
             String archivo, String titulo, String estilo2) {
-        if (!dataSource.isEmpty()) {
+        if (!dataSource.isEmpty()) {            
             for (ParametroReporte parametro : parametrosFiltro) {
                 if (parametro.getOperador().compareToIgnoreCase("like") == 0) {
                     parametro.setValor(parametro.getValor().substring(1, parametro.getValor().length()
                             - 1));
                 }
-                parametro.setAtributo(ClientSettings.getInstance().getResources().getResource(parametro.
-                        getAtributo()));
-                parametro.setOperador(ClientSettings.getInstance().getResources().getResource(parametro.
-                        getOperador()));
+                parametro.setAtributo(ClientSettings.getInstance().getResources().getResource(parametro.getAtributo()));
+                parametro.setOperador(ClientSettings.getInstance().getResources().getResource(parametro.getOperador()));
             }
             try {
                 String rutaReporte = General.empresa.getRutaReportes() + "/" + archivo + ".jasper";
-                Map parameters = new HashMap();                
+                Map parameters = new HashMap();
                 parameters.put(JRParameter.REPORT_LOCALE, Locale.getDefault());
-                parameters.put(JRParameter.REPORT_RESOURCE_BUNDLE, java.util.ResourceBundle.
-                        getBundle("Spanish"));
+                parameters.put(JRParameter.REPORT_RESOURCE_BUNDLE, java.util.ResourceBundle.getBundle("Spanish"));
                 parameters.put("datosSistema",
                         new String[]{
-                            General.edition+" ",
+                            General.edition + " ",
                             General.contacto});
                 parameters.put("reporteTitulo", titulo);
                 parameters.put("reporteFile", archivo);
@@ -108,10 +103,39 @@ public class ReporteController extends DefaultGridFrameController implements Act
                     parameters.put("empresaLogo", getIcon(encabezado.getImagen()));
                     parameters.put("empresaObservacion", encabezado.getObservacion());
                 }
-                JasperPrint jasperPrint = JasperFillManager.fillReport(rutaReporte, parameters, new JRBeanCollectionDataSource(
-                        dataSource));
-                JasperViewer.viewReport(jasperPrint, false);
+                JasperPrint jasperPrint;
+//                Session s = null;
+//                
+//            try {
+//                s = HibernateUtil.getSessionFactory().openSession();
+//                parameters.put("HIBERNATE_SESSION", s);
+//                //List dataSource = s.createQuery(reporte.getBaseSQL()).list();
+//                //mostrarReporte(dataSource, new ArrayList<ParametroReporte>(0), reporte.getFile(), reporte.getTitulo(), estilo);
+//            //} catch (Exception ex) {
+//            //    LoggerUtil.error(this.getClass(), "showReport", ex);
+//            
+//                
+//                
+//                jasperPrint = JasperFillManager.fillReport(rutaReporte, parameters);
+////                System.out.println(s.isOpen());
+//                } finally {
+//                s.close();
+//            }
 
+            jasperPrint = JasperFillManager.fillReport(rutaReporte, parameters,
+                        new JRBeanCollectionDataSource(dataSource));
+            
+            JasperViewer x=new JasperViewer(jasperPrint, false);
+            x.setState(JFrame.MAXIMIZED_BOTH);
+            x.setAlwaysOnTop(true);
+            //x.toFront();
+            x.setVisible(true);
+            
+            
+            
+                //JasperViewer2.viewReport(jasperPrint, false);
+
+                //MDIFrame.getInstance().toBack();
 
 //                OutputStream ouputStream = new FileOutputStream(new File("reporteListo.pdf"));
 //
@@ -137,7 +161,6 @@ public class ReporteController extends DefaultGridFrameController implements Act
             JOptionPane.showMessageDialog(MDIFrame.getInstance(), "El documento no tiene paginas.");
         }
     }
-
     protected DefaultGridFrame gridF;
 
     public void showReport(Reporte reporte, boolean isFiltroActivo, String estilo,
@@ -153,13 +176,13 @@ public class ReporteController extends DefaultGridFrameController implements Act
             //System.out.println("filtro");
             gridF = null;
             switch (reporte.getCategoria()) {
-            case PERSONAS: {
+                case PERSONAS: {
                 gridF = new Personas2GridFrame();
-                break;
-            }
-            default: {
+                    break;
+                }
+                default: {
                 gridF = new Filtros().mostrarFiltro(reporte, false);
-            }
+                }
             }
             if (gridF != null) {
                 gridF.inicializar(this, this, null, null, false);
@@ -179,8 +202,7 @@ public class ReporteController extends DefaultGridFrameController implements Act
             try {
                 s = HibernateUtil.getSessionFactory().openSession();
                 List dataSource = s.createQuery(reporte.getBaseSQL()).list();
-                mostrarReporte(dataSource, new ArrayList<ParametroReporte>(0), reporte.getFile(), reporte.
-                        getTitulo(), estilo);
+                mostrarReporte(dataSource, new ArrayList<ParametroReporte>(0), reporte.getFile(), reporte.getTitulo(), estilo);
             } catch (Exception ex) {
                 LoggerUtil.error(this.getClass(), "showReport", ex);
             } finally {
@@ -238,13 +260,11 @@ public class ReporteController extends DefaultGridFrameController implements Act
                                     mask = ClientSettings.getInstance().getResources().getDateMask(
                                             Consts.TYPE_DATE_TIME);
                                 } else {
-                                    mask = ClientSettings.getInstance().getResources().getDateMask(ClientSettings.
-                                            getInstance().getResources().getDateFormat());
+                                    mask = ClientSettings.getInstance().getResources().getDateMask(ClientSettings.getInstance().getResources().getDateFormat());
                                 }
                                 valor = new SimpleDateFormat(mask).format(fwc.getValue());
                             }
-                            parametros.add(new ParametroReporte(fwc.getAttributeName(), fwc.
-                                    getOperator(), valor));
+                            parametros.add(new ParametroReporte(fwc.getAttributeName(), fwc.getOperator(), valor));
                         }
                     }
                 }
@@ -265,11 +285,9 @@ public class ReporteController extends DefaultGridFrameController implements Act
         if (i == null) {
             try {
                 if (img == null) {
-                    i = Toolkit.getDefaultToolkit().createImage(JRLoader.loadBytes(ReporteController.class.
-                            getResource("/images/companyIcon.png")));
+                    i = Toolkit.getDefaultToolkit().createImage(JRLoader.loadBytes(ReporteController.class.getResource("/images/companyIcon.png")));
                 } else {
-                    i = Toolkit.getDefaultToolkit().createImage(JRLoader.loadBytes(ReporteController.class.
-                            getResource("/images/" + img + ".png")));
+                    i = Toolkit.getDefaultToolkit().createImage(JRLoader.loadBytes(ReporteController.class.getResource("/images/" + img + ".png")));
                 }
                 MediaTracker traker = new MediaTracker(new Panel());
                 traker.addImage(i, 0);
@@ -297,7 +315,4 @@ public class ReporteController extends DefaultGridFrameController implements Act
     public void actionPerformed(ActionEvent e) {
         return;
     }
-
 }
-
-

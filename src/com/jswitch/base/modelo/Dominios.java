@@ -510,7 +510,7 @@ public class Dominios {
 
     public static enum CategoriaReporte {
 
-        PRESTAMO, MOVIMIENTOS, PERSONAS, RECIBOS, COMISIONES, RENOVACIONES, DISTRIBUCION, DEVOLUCIONES, SINIESTROS, FINANCIAMIENTOS, SUPERINTENDENDENCIA, AUDITORIAS, POLIZAS
+        PERSONAS, x1
     }
 
     public static Domain CategoriaReporte() {// Listo
@@ -535,7 +535,7 @@ public class Dominios {
 
     public static Domain TipoVigencia() {// Listo
         Domain dominio = new Domain("TipoVigencia");
-        CategoriaReporte o[] = CategoriaReporte.values();
+        TipoVigencia o[] = TipoVigencia.values();
         for (int i = 0; i
                 < o.length; i++) {
             dominio.addDomainPair(o[i], o[i].toString());
