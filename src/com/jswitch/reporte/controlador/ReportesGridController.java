@@ -17,7 +17,6 @@ import org.openswing.swing.message.receive.java.Response;
 import org.openswing.swing.message.receive.java.ValueObject;
 import org.openswing.swing.util.client.ClientUtils;
 import com.jswitch.reporte.vista.ReportesGridFrame;
-import org.openswing.swing.message.send.java.FilterWhereClause;
 import org.openswing.swing.util.server.HibernateUtils;
 
 /**
